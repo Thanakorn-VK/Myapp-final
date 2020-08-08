@@ -5,7 +5,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -15,35 +15,62 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-
 public class Ingredient extends AppCompatActivity {
-    String v="test";
+    public int i = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ingredient);
-        Toast.makeText(getApplicationContext(),"read data",Toast.LENGTH_LONG).show();
-        readdata();
-
-
-
+        Toast.makeText(getApplicationContext(), "read data", Toast.LENGTH_LONG).show();
+        setPath();
+        //testloop();
     }
 
-
-    public void setname() {
-
+    public void testloop() {
+        String fruits[] = {"garlic",
+                "lemongrass"};/*,
+                "tomato",
+                "chinesecabbage",
+                "cabbage",
+                "chile",
+                "kaffirlimeleaves",
+                "yardlongbeans",
+                "carrot",
+                "lemon",
+                "babycorn",
+                "springonion",
+                "kale",
+                "onion",
+                "cucumber",
+                "ginger",
+                "galangal",
+                "blockkerry",
+                "coriander",
+                "holybasil",
+                "waterspinach",
+                "egg",
+                "shrimp",
+                "porkmeat",
+                "chickenbreast"};*/
+        for(String fruit : fruits){
+            Toast.makeText(getApplicationContext(), fruit, Toast.LENGTH_LONG).show();
+            setname(fruit);
+        }
+    }
+    public void setname(final String name) {
+        String To = "ingredient/" + name + "/status";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("ingredient/01/name");
-        Toast.makeText(getApplicationContext(),"readed path",Toast.LENGTH_LONG).show();
-        // Read from the database
+        DatabaseReference myRef = database.getReference(To);
+        Toast.makeText(getApplicationContext(), "Path is " + To, Toast.LENGTH_LONG).show();
         myRef.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //TextView textView = (TextView)findViewById(R.id.box1);
-                v = dataSnapshot.getValue(String.class);
-                //textView.setText(v);
-                Toast.makeText(getApplicationContext(),"onDataChage",Toast.LENGTH_LONG).show();
+                TextView textView1 = (TextView) findViewById(R.id.box1);
+                TextView textView4 = (TextView) findViewById(R.id.box4);
+                String Value = dataSnapshot.getValue(String.class);
+                textView4.setText(Value);
+                textView1.setText(name);
+                Toast.makeText(getApplicationContext(), "onDataChage", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -53,72 +80,87 @@ public class Ingredient extends AppCompatActivity {
             }
         });
     }
-    public void readdata() {
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("ingredient/01/check");
-        Toast.makeText(getApplicationContext(),"get path",Toast.LENGTH_LONG).show();
+
+
+
+
+    public void setPath() {
+        Toast.makeText(getApplicationContext(), "in setPath", Toast.LENGTH_LONG).show();
+        String fruits[] = {"garlic",
+                "lemongrass",
+                "tomato",
+                "chinesecabbage",
+                "cabbage"};/*,
+                "chile",
+                "kaffirlimeleaves",
+                "yardlongbeans",
+                "carrot",
+                "lemon",
+                "babycorn",
+                "springonion",
+                "kale",
+                "onion",
+                "cucumber",
+                "ginger",
+                "galangal",
+                "blockkerry",
+                "coriander",
+                "holybasil",
+                "waterspinach",
+                "egg",
+                "shrimp",
+                "porkmeat",
+                "chickenbreast"};*/
+        Toast.makeText(getApplicationContext(), "check before forloop", Toast.LENGTH_LONG).show();
+        //int i = 1;
+        //for(String fruit : fruits){
+        //    Toast.makeText(getApplicationContext(), fruit, Toast.LENGTH_LONG).show();
+        //    getStatus(fruit,i);
+        //}
+        getStatus(fruits[1],i);
+        // ********** ติดบัคตรง for loop วนชื่อของผลไม้ โปรแกรมมันเด้ง
+    }
+    public void getStatus(final String To, final int index) {
+        String way = "ingredient/"+To+"/status";
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(way);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                TextView textView = (TextView)findViewById(R.id.box1);
-                String value = dataSnapshot.getValue(String.class);
-                Toast.makeText(getApplicationContext(),"get string",Toast.LENGTH_LONG).show();
-                if(value.equals("yes")) {
-                   Toast.makeText(getApplicationContext(),"compair",Toast.LENGTH_LONG).show();
-                    setname();
-                    Toast.makeText(getApplicationContext(),"set box1",Toast.LENGTH_LONG).show();
-                    textView.setText(v);
+                //TextView textView = (TextView) findViewById(R.id.box1);
+                String Value = dataSnapshot.getValue(String.class);
+                //textView.setText(Value);
+                if(Value.equals("yes")) {
+                    switch(index) {
+                        case 1:
+                            TextView textView1 = (TextView) findViewById(R.id.box1);
+                            textView1.setText(To);
+                            incIndex();
+                            break;
+                        case 2:
+                            TextView textView3 = (TextView) findViewById(R.id.box3);
+                            textView3.setText(To);
+                            incIndex();
+                            break;
+                        case 3:
+                            TextView textView4 = (TextView) findViewById(R.id.box4);
+                            textView4.setText(To);
+                            incIndex();
+                            break;
+                        default:
+                            // code block
+                    }
                 }
+                else return;
             }
             @Override
             public void onCancelled(DatabaseError error) {
-                // Failed to read value
+                Toast.makeText(getApplicationContext(), "fail read date", Toast.LENGTH_LONG).show();
             }
+
         });
-
-    }/*
-    public void basicWrite() {
-
-        // [START write_message]
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("id");
-
-        myRef.setValue("Hello, World!");
-
-        DatabaseReference myRef1 = database.getReference("message");
-
-        myRef1.setValue("Hello, Worldtest!");
-        // [END write_message]
-
-        // [START read_message]
-        // Read from the database
-        // [END read_message]
-        // Read from the database
     }
-
-    /*
-    public void basicRead(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("id");
-
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                TextView textView = (TextView)findViewById(R.id.textdatatest);
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                textView.setText(value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-
-            }
-        });
-    }*/
+    public void incIndex() {
+        i = i + 1;
+    }
 }
