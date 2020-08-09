@@ -3,13 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
     android:orientation="vertical" >
-
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <TableRow
-        android:layout_width="339dp"
+        android:layout_width="wrap_content"
         android:layout_height="123dp"
-        android:layout_gravity="center" >
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/bgrow">
 
         <LinearLayout
             android:layout_width="113dp"
@@ -23,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -37,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -51,13 +60,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
     </TableRow>
-    <TableRow
-        android:layout_width="339dp"
-        android:layout_height="123dp"
-        android:layout_gravity="center" >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="123dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bgrow">
 
         <LinearLayout
             android:layout_width="113dp"
@@ -71,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -85,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -99,13 +110,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
     </TableRow>
-    <TableRow
-        android:layout_width="339dp"
-        android:layout_height="123dp"
-        android:layout_gravity="center" >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="123dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bgrow">
 
         <LinearLayout
             android:layout_width="113dp"
@@ -119,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -133,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -147,13 +160,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
     </TableRow>
-    <TableRow
-        android:layout_width="339dp"
-        android:layout_height="123dp"
-        android:layout_gravity="center" >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="123dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bgrow">
 
         <LinearLayout
             android:layout_width="113dp"
@@ -167,7 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -181,7 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -195,13 +210,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
     </TableRow>
-    <TableRow
-        android:layout_width="339dp"
-        android:layout_height="123dp"
-        android:layout_gravity="center" >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="123dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bgrow">
 
         <LinearLayout
             android:layout_width="113dp"
@@ -215,7 +232,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -229,7 +246,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -243,13 +260,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
     </TableRow>
-    <TableRow
-        android:layout_width="339dp"
-        android:layout_height="123dp"
-        android:layout_gravity="center" >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="123dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bgrow">
 
         <LinearLayout
             android:layout_width="113dp"
@@ -263,7 +282,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -277,7 +296,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="113dp"
@@ -291,8 +310,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="" />
         </LinearLayout>
     </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="123dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bgrow">
 
+        <LinearLayout
+            android:layout_width="113dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/box19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="113dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/box20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="113dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/box21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+    </TableRow>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
