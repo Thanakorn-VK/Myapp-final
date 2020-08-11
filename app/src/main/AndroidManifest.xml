@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Ingredient"></activity>
+        <activity android:name=".Chooseingredient"></activity>
     </application>
 
 </manifest>

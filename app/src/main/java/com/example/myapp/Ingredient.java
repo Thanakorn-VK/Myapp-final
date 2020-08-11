@@ -1,6 +1,9 @@
 package com.example.myapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,10 +33,7 @@ public class Ingredient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ingredient);
         Toast.makeText(getApplicationContext(), "read data", Toast.LENGTH_LONG).show();
-        //setImg("garlic");
-        //setImg("tomato");
-        //setImg("lemongrass");
-        //setImg("chinesecabbage");
+        //getStatus("ใบมะกรูด");
         getStatus("garlic");
         getStatus("lemongrass");
         getStatus("tomato");
@@ -59,7 +59,19 @@ public class Ingredient extends AppCompatActivity {
         getStatus("shrimp");
         getStatus("porkmeat");
         getStatus("chickenbreast");
+
+        Button buttonNextChoose = (Button) findViewById(R.id.testtochoose);
+        buttonNextChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Chooseingredient.class);
+                startActivity(i);
+            }
+        });
     }
+
+
+
     public int chooseName(final String To){
         switch (To){
             case "garlic":              return 0;

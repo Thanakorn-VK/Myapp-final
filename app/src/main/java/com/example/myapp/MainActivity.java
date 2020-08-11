@@ -13,6 +13,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try{
+            this.getSupportActionBar().hide();
+        }catch (NullPointerException e){
+
+        }
 
         Button buttonNext = (Button) findViewById(R.id.button_start);
         buttonNext.setOnClickListener(new View.OnClickListener() {
