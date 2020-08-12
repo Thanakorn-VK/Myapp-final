@@ -26,7 +26,7 @@ public class Chooseingredient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chooseingredient);
-
+        initialStatus();
         Button item1 = (Button) findViewById(R.id.buttongarlic);
         Button item2 = (Button) findViewById(R.id.buttoncabbage);
         Button item3 = (Button) findViewById(R.id.buttonginger);
@@ -166,7 +166,7 @@ public class Chooseingredient extends AppCompatActivity {
                     myRef.setValue("yes");
                     changC(7);
                 }
-                else if(!(state[2])) {
+                else if(!(state[7])) {
                     myRef.setValue("no");
                     changC(7);
                 }
@@ -177,21 +177,6 @@ public class Chooseingredient extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("ingredientinput/lemongrass");
-                if(state[7]){
-                    myRef.setValue("yes");
-                    changC(7);
-                }
-                else if(!(state[7])) {
-                    myRef.setValue("no");
-                    changC(7);
-                }
-            }
-        });
-        item10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/yardlongbeans");
                 if(state[8]){
                     myRef.setValue("yes");
                     changC(8);
@@ -202,11 +187,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item11.setOnClickListener(new View.OnClickListener() {
+        item10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/cucumber");
+                DatabaseReference myRef = database.getReference("ingredientinput/yardlongbeans");
                 if(state[9]){
                     myRef.setValue("yes");
                     changC(9);
@@ -217,11 +202,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item12.setOnClickListener(new View.OnClickListener() {
+        item11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/blockkerry");
+                DatabaseReference myRef = database.getReference("ingredientinput/cucumber");
                 if(state[10]){
                     myRef.setValue("yes");
                     changC(10);
@@ -232,11 +217,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item13.setOnClickListener(new View.OnClickListener() {
+        item12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/kaffirlimeleaves");
+                DatabaseReference myRef = database.getReference("ingredientinput/blockkerry");
                 if(state[11]){
                     myRef.setValue("yes");
                     changC(11);
@@ -247,12 +232,12 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item14.setOnClickListener(new View.OnClickListener() {
+        item13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/holybasil");
-                if(state[212]){
+                DatabaseReference myRef = database.getReference("ingredientinput/kaffirlimeleaves");
+                if(state[12]){
                     myRef.setValue("yes");
                     changC(12);
                 }
@@ -262,12 +247,12 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item15.setOnClickListener(new View.OnClickListener() {
+        item14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/chinesecabbage");
-                if(state[13]){
+                DatabaseReference myRef = database.getReference("ingredientinput/holybasil");
+                if(state[232]){
                     myRef.setValue("yes");
                     changC(13);
                 }
@@ -277,11 +262,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item16.setOnClickListener(new View.OnClickListener() {
+        item15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/coriander");
+                DatabaseReference myRef = database.getReference("ingredientinput/chinesecabbage");
                 if(state[14]){
                     myRef.setValue("yes");
                     changC(14);
@@ -292,11 +277,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item17.setOnClickListener(new View.OnClickListener() {
+        item16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/waterspinach");
+                DatabaseReference myRef = database.getReference("ingredientinput/coriander");
                 if(state[15]){
                     myRef.setValue("yes");
                     changC(15);
@@ -307,11 +292,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item18.setOnClickListener(new View.OnClickListener() {
+        item17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/chile");
+                DatabaseReference myRef = database.getReference("ingredientinput/waterspinach");
                 if(state[16]){
                     myRef.setValue("yes");
                     changC(16);
@@ -322,11 +307,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item19.setOnClickListener(new View.OnClickListener() {
+        item18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/holybasil");
+                DatabaseReference myRef = database.getReference("ingredientinput/chile");
                 if(state[17]){
                     myRef.setValue("yes");
                     changC(17);
@@ -337,11 +322,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item20.setOnClickListener(new View.OnClickListener() {
+        item19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/tomato");
+                DatabaseReference myRef = database.getReference("ingredientinput/holybasil");
                 if(state[18]){
                     myRef.setValue("yes");
                     changC(18);
@@ -352,11 +337,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item21.setOnClickListener(new View.OnClickListener() {
+        item20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/onion");
+                DatabaseReference myRef = database.getReference("ingredientinput/tomato");
                 if(state[19]){
                     myRef.setValue("yes");
                     changC(19);
@@ -367,11 +352,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item22.setOnClickListener(new View.OnClickListener() {
+        item21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/shrimp");
+                DatabaseReference myRef = database.getReference("ingredientinput/onion");
                 if(state[20]){
                     myRef.setValue("yes");
                     changC(20);
@@ -382,11 +367,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item23.setOnClickListener(new View.OnClickListener() {
+        item22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/egg");
+                DatabaseReference myRef = database.getReference("ingredientinput/shrimp");
                 if(state[21]){
                     myRef.setValue("yes");
                     changC(21);
@@ -397,11 +382,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item24.setOnClickListener(new View.OnClickListener() {
+        item23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/chickenbreast");
+                DatabaseReference myRef = database.getReference("ingredientinput/egg");
                 if(state[22]){
                     myRef.setValue("yes");
                     changC(22);
@@ -412,11 +397,11 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
-        item25.setOnClickListener(new View.OnClickListener() {
+        item24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/porkmeat");
+                DatabaseReference myRef = database.getReference("ingredientinput/chickenbreast");
                 if(state[23]){
                     myRef.setValue("yes");
                     changC(23);
@@ -427,9 +412,61 @@ public class Chooseingredient extends AppCompatActivity {
                 }
             }
         });
+        item25.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("ingredientinput/porkmeat");
+                if(state[24]){
+                    myRef.setValue("yes");
+                    changC(24);
+                }
+                else if(!(state[24])) {
+                    myRef.setValue("no");
+                    changC(24);
+                }
+            }
+        });
 
     }
     public void changC(int index){
         state[index] = !(state[index]);
+    }
+    public void setStatus(String name){
+        String way = "ingredientinput/" + name;
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(way);
+        myRef.setValue("no");
+    }
+
+    public void initialStatus(){
+        String fruits[] = {"garlic",
+                "lemongrass",
+                "tomato",
+                "chinesecabbage",
+                "cabbage",
+                "chile",
+                "kaffirlimeleaves",
+                "yardlongbeans",
+                "carrot",
+                "lemon",
+                "babycorn",
+                "springonion",
+                "kale",
+                "onion",
+                "cucumber",
+                "ginger",
+                "galangal",
+                "blockkerry",
+                "coriander",
+                "holybasil",
+                "waterspinach",
+                "egg",
+                "shrimp",
+                "porkmeat",
+                "chickenbreast"};
+        for (String fruit : fruits){
+            setStatus(fruit);
+        }
     }
 }
