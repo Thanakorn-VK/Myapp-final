@@ -102,6 +102,7 @@ public class Ingredient extends AppCompatActivity {
         }
         return "";
     }
+
     public int chooseImg(final String To){
         switch (To){
             case "garlic":              return 0;
@@ -134,12 +135,15 @@ public class Ingredient extends AppCompatActivity {
         }
         return 1;
     }
+
     public void getStatus(final String To){
         String way = "ingredient/"+To+"/status";
         final String selectName;
         final int selectIMG;
+
         selectIMG = chooseImg(To);
         selectName = chooseName(To);
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(way);
         myRef.addValueEventListener(new ValueEventListener() {

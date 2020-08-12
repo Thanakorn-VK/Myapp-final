@@ -1,6 +1,7 @@
 package com.example.myapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.View;
@@ -26,6 +27,15 @@ public class Chooseingredient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chooseingredient);
+        Button buttonShowmanu = (Button) findViewById(R.id.cooking);
+        buttonShowmanu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase.class);
+                startActivity(i);
+            }
+        });
+
         initialStatus();
         Button item1 = (Button) findViewById(R.id.buttongarlic);
         Button item2 = (Button) findViewById(R.id.buttoncabbage);
@@ -252,7 +262,7 @@ public class Chooseingredient extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("ingredientinput/holybasil");
-                if(state[232]){
+                if(state[13]){
                     myRef.setValue("yes");
                     changC(13);
                 }
@@ -326,7 +336,7 @@ public class Chooseingredient extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/holybasil");
+                DatabaseReference myRef = database.getReference("ingredientinput/tomato");
                 if(state[18]){
                     myRef.setValue("yes");
                     changC(18);
@@ -341,7 +351,7 @@ public class Chooseingredient extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ingredientinput/tomato");
+                DatabaseReference myRef = database.getReference("ingredientinput/lemon");
                 if(state[19]){
                     myRef.setValue("yes");
                     changC(19);
