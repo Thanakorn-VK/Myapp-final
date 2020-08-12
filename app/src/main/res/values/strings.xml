@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SousChef</string>
+    <string name="recipe">ส่วนผสม</string>
+    <string name="howto">วิธีทำ</string>
 </resources>

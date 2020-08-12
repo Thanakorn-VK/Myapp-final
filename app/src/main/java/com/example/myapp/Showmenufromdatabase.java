@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Showmenufromdatabase extends AppCompatActivity {
-    //String input []= {"test","test"};
     ArrayList<String> input = new ArrayList<String>();
     public int index = 0;
     @Override
@@ -54,6 +53,14 @@ public class Showmenufromdatabase extends AppCompatActivity {
         getIngredient("chickenbreast");*/
 
         // edit code here
+        Button buttonNextChoose = (Button) findViewById(R.id.showrecipe);
+        buttonNextChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
     }
     public void getIngredient(final String name){
         String way = "ingredientinput/" + name;
