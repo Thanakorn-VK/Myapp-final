@@ -12,15 +12,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
+                android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TableRow
                     android:layout_width="380dp"
-                    android:layout_height="550dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:paddingLeft="15dp">
 
@@ -82,21 +86,43 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:textSize="17dp"
-                            android:visibility="gone" />
+                            android:visibility="invisible" />
 
                         <TextView
                             android:id="@+id/textdata9"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:textSize="17dp"
-                            android:visibility="gone" />
+                            android:textSize="17dp" />
 
                         <TextView
                             android:id="@+id/textdata10"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:textSize="17dp"
-                            android:visibility="gone" />
+                            android:textSize="17dp"/>
+
+                        <TextView
+                            android:id="@+id/textdata11"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/textdata12"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/textdata13"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/textdata14"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textSize="17dp" />
                     </LinearLayout>
 
                 </TableRow>

@@ -25,34 +25,6 @@ public class Showmenufromdatabase extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmenufromdatabase);
-        /*
-        getIngredient("garlic");
-        getIngredient("lemongrass");
-        getIngredient("tomato");
-        getIngredient("chinesecabbage");
-        getIngredient("cabbage");
-        getIngredient("chile");
-        getIngredient("kaffirlimeleaves");
-        getIngredient("yardlongbeans");
-        getIngredient("carrot");
-        getIngredient("lemon");
-        getIngredient("babycorn");
-        getIngredient("springonion");
-        getIngredient("kale");
-        getIngredient("onion");
-        getIngredient("cucumber");
-        getIngredient("ginger");
-        getIngredient("galangal");
-        getIngredient("blockkerry");
-        getIngredient("coriander");
-        getIngredient("holybasil");
-        getIngredient("waterspinach");
-        getIngredient("egg");
-        getIngredient("shrimp");
-        getIngredient("porkmeat");
-        getIngredient("chickenbreast");*/
-
-        // edit code here
         Button buttonNextChoose = (Button) findViewById(R.id.showrecipe);
         buttonNextChoose.setOnClickListener(new View.OnClickListener() {
             @Override

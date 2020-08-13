@@ -2,6 +2,7 @@ package com.example.myapp;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +21,14 @@ import java.util.ArrayList;
 
 public class Showrecipe extends AppCompatActivity {
     String[] arr;
-    int lengthofarr;
-    private static String Menu = "eggfriedrice"; // ตรงนี้ต้องเป็นตัวแปรที่มาจากการเลือกเมนูอาหารจากหน้าที่แล้ว
+    String[] arrText2;
+    String Menu = "eggfriedrice"; // ตรงนี้ต้องเป็นตัวแปรที่มาจากการเลือกเมนูอาหารจากหน้าที่แล้ว
     int [] Img = new int[] {R.mipmap.ic_pan,R.mipmap.ic_pot};
     int [] IndexText = new int[] {R.id.textdata0,R.id.textdata1,R.id.textdata2,R.id.textdata3,R.id.textdata4,
-                                  R.id.textdata5,R.id.textdata6,R.id.textdata7,R.id.textdata8,R.id.textdata9,R.id.textdata10};
+                                  R.id.textdata5,R.id.textdata6,R.id.textdata7,R.id.textdata8,R.id.textdata9,
+                                  R.id.textdata10,R.id.textdata11,R.id.textdata12,R.id.textdata13,R.id.textdata14};
+    int [] IndexText2 = new int[] {R.id.textdata15,R.id.textdata16,R.id.textdata17,R.id.textdata18,R.id.textdata19,
+                                   R.id.textdata20};
     ImageView imageView;
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -32,20 +36,20 @@ public class Showrecipe extends AppCompatActivity {
     public String nameMenu = "";
     public String typeMenu = "";
     private Object ViewPagerAdapter;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.showrecipe);
         getUrl(Menu);
         getName(Menu);
         getType(Menu);
         getData(Menu);
+        getDataText(Menu);
         imageView = (ImageView)findViewById(R.id.imgshowmenu);
         tabLayout = findViewById(R.id.tablayout);
         viewPager = findViewById(R.id.viewpager);
         getTab();
     }
-
     private void loadImageFromUrl(String urlImg) {
         Picasso.with(this).load(urlImg).placeholder(R.mipmap.ic_loading)
         .error(R.mipmap.ic_loading)
@@ -116,7 +120,6 @@ public class Showrecipe extends AppCompatActivity {
     }
     public void setUrl(String url){
         urlImg = url;
-        Toast.makeText(getApplicationContext(), urlImg, Toast.LENGTH_LONG).show();
         loadImageFromUrl(urlImg);
     }
     public void getName(final String name){
@@ -168,8 +171,7 @@ public class Showrecipe extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
                 arr = Value.split("/");
-                lengthofarr = arr.length;
-                showData(arr,lengthofarr);
+                showData(arr);
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -177,11 +179,42 @@ public class Showrecipe extends AppCompatActivity {
             }
         });
     }
-    public void showData(String[] arr,int lengt){
-
-        for(int index = 0 ; index < lengt ; index++){
+    public void showData(String[] arr){
+        for(int index = 0 ; index < arr.length ; index++){
             TextView textView = (TextView) findViewById(IndexText[index]);
             textView.setText((index+1)+". "+arr[index]);
+        }
+        for(int index = arr.length ; index < IndexText.length ; index++){
+            TextView textView = (TextView) findViewById(IndexText[index]);
+            textView.setVisibility(View.GONE);
+        }
+    }
+    public void getDataText(final String name){
+        String way = "menu/"+ name +"/text2";
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(way);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String Value = dataSnapshot.getValue(String.class);
+                arrText2 = Value.split("/");
+                showText(arrText2);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+    }
+    public void showText(String[] arr){
+        for(int index = 0 ; index < arr.length ; index++){
+            TextView textView = (TextView) findViewById(IndexText2[index]);
+            textView.setText((index+1)+". "+arr[index]);
+        }
+
+        for(int index = arr.length ; index < IndexText2.length ; index++){
+            TextView textView = (TextView) findViewById(IndexText2[index]);
+            textView.setVisibility(View.GONE);
         }
     }
 }

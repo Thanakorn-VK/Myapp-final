@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -332,9 +333,6 @@ public class Ingredient extends AppCompatActivity {
                             // code block
                     }
                 }
-                else {
-                    return;
-                }
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -347,5 +345,4 @@ public class Ingredient extends AppCompatActivity {
     public void incIndex() {
         index = index + 1;
     }
-
 }
