@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), Ingredient.class);
+                //Intent i = new Intent(getApplicationContext(), Showrecipe.class);
                 startActivity(i);
             }
         });

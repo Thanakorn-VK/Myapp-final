@@ -1,8 +1,10 @@
 package com.example.myapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,10 +56,9 @@ public class Showrecipe extends AppCompatActivity {
         Picasso.with(this).load(urlImg).placeholder(R.mipmap.ic_loading)
         .error(R.mipmap.ic_loading)
         .into(imageView,new com.squareup.picasso.Callback(){
-
             @Override
             public void onSuccess() {
-                showDetail(nameMenu,typeMenu);
+                //showDetail(nameMenu,typeMenu);
             }
 
             @Override
@@ -65,23 +66,6 @@ public class Showrecipe extends AppCompatActivity {
 
             }
         });
-    }
-    public void showDetail(String name,String type){
-        TextView textView1 = (TextView) findViewById(R.id.namemenu);
-        TextView textView2 = (TextView) findViewById(R.id.type);
-        textView1.setText(name);
-
-        if(type.equals("yes")) {
-            ImageView imageView1 = (ImageView) findViewById(R.id.typeimg);
-            imageView1.setImageResource(Img[0]);
-            textView2.setText("เมนูผัด");
-        }
-        if(type.equals("no")) {
-            ImageView imageView2 = (ImageView) findViewById(R.id.typeimg);
-            imageView2.setImageResource(Img[1]);
-            textView2.setText("เมนูต้ม");
-        }
-
     }
     public void getTab(){
         final ViewPagerAdapter viewPagerAdapter;
@@ -122,6 +106,24 @@ public class Showrecipe extends AppCompatActivity {
         urlImg = url;
         loadImageFromUrl(urlImg);
     }
+
+    public void showDetail(String name,String type){
+        TextView textView1 = (TextView) findViewById(R.id.namemenu);
+        textView1.setText(name);
+        TextView textView2 = (TextView) findViewById(R.id.type);
+
+        if(type.equals("yes")) {
+            ImageView imageView1 = (ImageView) findViewById(R.id.typeimg);
+            imageView1.setImageResource(Img[0]);
+            textView2.setText("เมนูผัด");
+        }
+        if(type.equals("no")) {
+            ImageView imageView2 = (ImageView) findViewById(R.id.typeimg);
+            imageView2.setImageResource(Img[1]);
+            textView2.setText("เมนูต้ม");
+        }
+
+    }
     public void getName(final String name){
         String way = "menu/"+ name +"/name";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -130,7 +132,8 @@ public class Showrecipe extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
-                setName(Value);
+                TextView textView1 = (TextView) findViewById(R.id.namemenu);
+                textView1.setText(Value);
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -139,9 +142,7 @@ public class Showrecipe extends AppCompatActivity {
 
         });
     }
-    public void setName(String name){
-        nameMenu = name;
-    }
+
     public void getType(final String name){
         String way = "menu/"+ name +"/type";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -150,7 +151,18 @@ public class Showrecipe extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
-                setType(Value);
+                TextView textView2 = (TextView) findViewById(R.id.type);
+
+                if(Value.equals("yes")) {
+                    ImageView imageView1 = (ImageView) findViewById(R.id.typeimg);
+                    imageView1.setImageResource(Img[0]);
+                    textView2.setText("เมนูผัด");
+                }
+                if(Value.equals("no")) {
+                    ImageView imageView2 = (ImageView) findViewById(R.id.typeimg);
+                    imageView2.setImageResource(Img[1]);
+                    textView2.setText("เมนูต้ม");
+                }
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -159,9 +171,10 @@ public class Showrecipe extends AppCompatActivity {
 
         });
     }
-    public void setType(String type){
-        typeMenu = type;
-    }
+
+
+
+
     public void getData(final String name){
         String way = "menu/"+ name +"/text1";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
