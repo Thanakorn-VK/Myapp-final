@@ -18,11 +18,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Chooseingredient extends AppCompatActivity {
     final boolean state[] = {true,true,true,true,true,true,
                              true,true,true,true,true,true,
                              true,true,true,true,true,true,
                              true,true,true,true,true,true};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

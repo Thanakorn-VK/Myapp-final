@@ -64,6 +64,7 @@ public class Ingredient extends AppCompatActivity {
         buttonNextChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent i = new Intent(getApplicationContext(), Chooseingredient.class);
                 startActivity(i);
             }
