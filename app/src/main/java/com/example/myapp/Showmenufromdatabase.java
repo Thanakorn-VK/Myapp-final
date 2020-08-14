@@ -41,10 +41,46 @@ public class Showmenufromdatabase extends AppCompatActivity {
         compareandgetname("Porkbasilfriedrice");
         compareandgetname("Chickenbasilfriedrice");
 
-        LinearLayout menu_photos = (LinearLayout)findViewById(R.id.menu1);
-        menu_photos.setOnClickListener(new View.OnClickListener() {
+        LinearLayout menu1 = (LinearLayout)findViewById(R.id.menu1);
+        menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(0));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu2 = (LinearLayout)findViewById(R.id.menu2);
+        menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(1));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu3 = (LinearLayout)findViewById(R.id.menu3);
+        menu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(2));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu4 = (LinearLayout)findViewById(R.id.menu4);
+        menu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(3));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
                 startActivity(i);
             }

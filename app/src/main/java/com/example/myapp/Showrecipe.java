@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class Showrecipe extends AppCompatActivity {
     String[] arr;
     String[] arrText2;
-    String Menu = "eggfriedrice"; // ตรงนี้ต้องเป็นตัวแปรที่มาจากการเลือกเมนูอาหารจากหน้าที่แล้ว
+    String Menu = ""; // ตรงนี้ต้องเป็นตัวแปรที่มาจากการเลือกเมนูอาหารจากหน้าที่แล้ว
     int [] Img = new int[] {R.mipmap.ic_pan,R.mipmap.ic_pot};
     int [] IndexText = new int[] {R.id.textdata0,R.id.textdata1,R.id.textdata2,R.id.textdata3,R.id.textdata4,
                                   R.id.textdata5,R.id.textdata6,R.id.textdata7,R.id.textdata8,R.id.textdata9,
@@ -38,15 +38,37 @@ public class Showrecipe extends AppCompatActivity {
     public String nameMenu = "";
     public String typeMenu = "";
     private Object ViewPagerAdapter;
+    public void getMenu(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("nametoshow");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String Value = dataSnapshot.getValue(String.class);
+                getUrl(Value);
+                getName(Value);
+                getType(Value);
+                getData(Value);
+                getDataText(Value);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "fail read date", Toast.LENGTH_LONG).show();
+            }
+
+        });
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getMenu();
         setContentView(R.layout.showrecipe);
+        /*
         getUrl(Menu);
         getName(Menu);
         getType(Menu);
         getData(Menu);
         getDataText(Menu);
+         */
         imageView = (ImageView)findViewById(R.id.imgshowmenu);
         tabLayout = findViewById(R.id.tablayout);
         viewPager = findViewById(R.id.viewpager);
