@@ -24,7 +24,7 @@ public class Chooseingredient extends AppCompatActivity {
     final boolean state[] = {true,true,true,true,true,true,
                              true,true,true,true,true,true,
                              true,true,true,true,true,true,
-                             true,true,true,true,true,true};
+                             true,true,true,true,true,true,true};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

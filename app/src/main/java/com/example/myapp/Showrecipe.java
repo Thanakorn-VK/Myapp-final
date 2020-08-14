@@ -58,7 +58,6 @@ public class Showrecipe extends AppCompatActivity {
         .into(imageView,new com.squareup.picasso.Callback(){
             @Override
             public void onSuccess() {
-                //showDetail(nameMenu,typeMenu);
             }
 
             @Override

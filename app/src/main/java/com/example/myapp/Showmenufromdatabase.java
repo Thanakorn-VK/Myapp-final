@@ -27,14 +27,20 @@ public class Showmenufromdatabase extends AppCompatActivity {
     HashSet<String> inputset = new HashSet <String>();
     HashSet <String> conpareset = new HashSet <String>();
     HashSet <String> resultset = new HashSet <String>();
-
+    int [] imgmenu = new int[] {R.id.imgmenu,R.id.imgmenu2,R.id.imgmenu3,R.id.imgmenu4};
+    int [] textmenu = new int[] {R.id.textmenu,R.id.textmenu2,R.id.textmenu3,R.id.textmenu4};
     public int index = 0;
+    public int count = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmenufromdatabase);
         getAllingredient();
         compareandgetname("eggfriedrice");
+        compareandgetname("ShrimpBasilFriedRice");
+        compareandgetname("Porkbasilfriedrice");
+        compareandgetname("Chickenbasilfriedrice");
+
         LinearLayout menu_photos = (LinearLayout)findViewById(R.id.menu1);
         menu_photos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +49,6 @@ public class Showmenufromdatabase extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
     }
     public void showData(){
         for(int i = 0 ; i < nameofmenu.size() ; i++){
@@ -78,6 +82,9 @@ public class Showmenufromdatabase extends AppCompatActivity {
         getIngredient("porkmeat");
         getIngredient("chickenbreast");
     }
+
+
+
     public void getIngredient(final String name){
         String way = "ingredientinput/" + name;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -111,7 +118,10 @@ public class Showmenufromdatabase extends AppCompatActivity {
             inputset.add(input.get(i));
         }
     }
-    public void compareandgetname(final String name){
+
+
+
+    public void compareandgetname(final String name){ // เอา input ที่ต้องการเปรียบเทียบมา
         String way = "menu/"+name+"/input";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference(way); // "ingredientibput/garlic"
@@ -121,10 +131,10 @@ public class Showmenufromdatabase extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
                 String[] arr2 = Value.split("/");
-                conpareset.clear();
+                conpareset.clear(); // เคลียร์ค่า
                 resultset.clear();
-                loadcompare(arr2);
-                findName(name);
+                loadcompare(arr2); //โหลดค่าที่ต้องการเปรียบเทียบกับ input ที่เรามี
+                findName(name); // หาว่าค่าที่มีกับค่าที่ต้องการเปรียบเทียบว่าสามรถเอามาแสดงได้หรือไม้ **เมนูนั้นๆมีวัตถุดิบตรงตามที่เราเลือกครบทุกอัน
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -138,18 +148,28 @@ public class Showmenufromdatabase extends AppCompatActivity {
         resultset = inputset;
         resultset.retainAll(conpareset);
         if(resultset.equals(conpareset)){
-            nameofmenu.add(name);
+            nameofmenu.add(name); // ถ้ามี จะต้องแอดชื่อเมนูนั้นๆไปยังอาเรย์ nameofmenu
+            count++;
         }
         // for ตามอาเรย์ nameofmenu เพื่อแสดงทุกเมนูที่มี
-        setImg();
+        //setAllbox();
+        setImg(count);
     }
     public void loadcompare(String[] arr2){
         for(int i = 0 ; i < arr2.length ; i++){
             conpareset.add(arr2[i]);
         }
     }
-    public void setImg(){
-        String name = nameofmenu.get(0);
+
+
+
+    public void setAllbox(){
+        for(int i = 0 ; i < nameofmenu.size() ; i++){
+            //setImg(i);
+        }
+    }
+    public void setImg(final int index){
+        String name = nameofmenu.get(index); // ถ้ามีข้อมูลที่ index 1 ต้องเปลี่ยน
         String way = "menu/"+ name +"/img";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(way);
@@ -157,7 +177,7 @@ public class Showmenufromdatabase extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
-                Img(Value);
+                Img(Value,index);
 
             }
             @Override
@@ -166,25 +186,42 @@ public class Showmenufromdatabase extends AppCompatActivity {
             }
         });
     }
-    public void Img(String urlImg){
+    public void Img(String urlImg, final int index){
         // ต้องเซ็ตตาม box ที่ต้องการ อาจจะใช้ index ในการอ้างอิงของ R.id.imgshowmenu
-        ImageView imageView = (ImageView) findViewById(R.id.imgmenu);
+
+        ImageView imageView = (ImageView) findViewById(imgmenu[index]); // จะต้องเปลี่ยนตาม ช่องปัจจุบัน
         Picasso.with(this).load(urlImg).placeholder(R.mipmap.ic_loading)
                 .error(R.mipmap.ic_loading)
                 .into(imageView,new com.squareup.picasso.Callback(){
 
                     @Override
                     public void onSuccess() {
-                        setName();
+                        String name = nameofmenu.get(index); // ถ้ามีข้อมูลที่ index 1 ต้องเปลี่ยน
+                        String way = "menu/"+ name +"/name";
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference(way);
+                        myRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String Value = dataSnapshot.getValue(String.class);
+                                TextView textView = (TextView) findViewById(textmenu[index]); // id จะต้องเปลี่ยนทุกครั้ง
+                                textView.setText(Value);
+
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError error) {
+
+                            }
+                        });
                     }
 
                     @Override
                     public void onError() {
                     }
                 });
-    }
-    public void setName(){
-        String name = nameofmenu.get(0);
+    }/*
+    public void setName(final int index){
+        String name = nameofmenu.get(index); // ถ้ามีข้อมูลที่ index 1 ต้องเปลี่ยน
         String way = "menu/"+ name +"/name";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(way);
@@ -192,7 +229,7 @@ public class Showmenufromdatabase extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
-                TextView textView = (TextView) findViewById(R.id.textmenu);
+                TextView textView = (TextView) findViewById(textmenu[index]); // id จะต้องเปลี่ยนทุกครั้ง
                 textView.setText(Value);
 
             }
@@ -201,5 +238,5 @@ public class Showmenufromdatabase extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 }

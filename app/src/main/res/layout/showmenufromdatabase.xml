@@ -51,7 +51,7 @@
                             android:id="@+id/textmenu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:text="loading"
                             android:textSize="20dp" />
                     </TableRow>
                 </LinearLayout>
@@ -83,7 +83,7 @@
                             android:id="@+id/textmenu2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:text="loading"
                             android:textSize="20dp" />
                     </TableRow>
                 </LinearLayout>
@@ -122,7 +122,7 @@
                             android:id="@+id/textmenu3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:text="loading"
                             android:textSize="20dp" />
                     </TableRow>
                 </LinearLayout>
@@ -154,7 +154,7 @@
                             android:id="@+id/textmenu4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:text="loading"
                             android:textSize="20dp" />
                     </TableRow>
                 </LinearLayout>
