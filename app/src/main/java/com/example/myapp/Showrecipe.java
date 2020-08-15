@@ -62,13 +62,6 @@ public class Showrecipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getMenu();
         setContentView(R.layout.showrecipe);
-        /*
-        getUrl(Menu);
-        getName(Menu);
-        getType(Menu);
-        getData(Menu);
-        getDataText(Menu);
-         */
         imageView = (ImageView)findViewById(R.id.imgshowmenu);
         tabLayout = findViewById(R.id.tablayout);
         viewPager = findViewById(R.id.viewpager);

@@ -27,8 +27,17 @@ public class Showmenufromdatabase extends AppCompatActivity {
     HashSet<String> inputset = new HashSet <String>();
     HashSet <String> conpareset = new HashSet <String>();
     HashSet <String> resultset = new HashSet <String>();
-    int [] imgmenu = new int[] {R.id.imgmenu,R.id.imgmenu2,R.id.imgmenu3,R.id.imgmenu4};
-    int [] textmenu = new int[] {R.id.textmenu,R.id.textmenu2,R.id.textmenu3,R.id.textmenu4};
+    int [] imgmenu = new int[] {R.id.imgmenu,R.id.imgmenu2,R.id.imgmenu3,R.id.imgmenu4,
+                                R.id.imgmenu5,R.id.imgmenu6,R.id.imgmenu7,R.id.imgmenu8,
+                                R.id.imgmenu9,R.id.imgmenu10,R.id.imgmenu11,R.id.imgmenu12};
+
+    int [] textmenu = new int[] {R.id.textmenu,R.id.textmenu2,R.id.textmenu3,R.id.textmenu4,
+                                 R.id.textmenu5,R.id.textmenu6,R.id.textmenu7,R.id.textmenu8,
+                                 R.id.textmenu9,R.id.textmenu10,R.id.textmenu11,R.id.textmenu12};
+    int [] menu = new int[] {R.id.menu1,R.id.menu2,R.id.menu3,R.id.menu4, // 0 1 2 3
+                             R.id.menu5,R.id.menu6,R.id.menu7,R.id.menu8, // 4 5 6 7
+                             R.id.menu9,R.id.menu10,R.id.menu11,R.id.menu12}; // 8 9 10 11
+
     public int index = 0;
     public int count = -1;
     @Override
@@ -40,6 +49,7 @@ public class Showmenufromdatabase extends AppCompatActivity {
         compareandgetname("ShrimpBasilFriedRice");
         compareandgetname("Porkbasilfriedrice");
         compareandgetname("Chickenbasilfriedrice");
+        //setBoxvisibility();
 
         LinearLayout menu1 = (LinearLayout)findViewById(R.id.menu1);
         menu1.setOnClickListener(new View.OnClickListener() {
@@ -85,10 +95,105 @@ public class Showmenufromdatabase extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        LinearLayout menu5 = (LinearLayout)findViewById(R.id.menu5);
+        menu5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(4));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu6 = (LinearLayout)findViewById(R.id.menu6);
+        menu6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(5));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu7 = (LinearLayout)findViewById(R.id.menu7);
+        menu7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(6));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu8 = (LinearLayout)findViewById(R.id.menu8);
+        menu8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(7));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu9 = (LinearLayout)findViewById(R.id.menu9);
+        menu9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(8));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu10 = (LinearLayout)findViewById(R.id.menu10);
+        menu10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(9));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu11 = (LinearLayout)findViewById(R.id.menu11);
+        menu11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(10));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
+        LinearLayout menu12 = (LinearLayout)findViewById(R.id.menu12);
+        menu12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("nametoshow");
+                myRef.setValue(nameofmenu.get(11));
+                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                startActivity(i);
+            }
+        });
     }
-    public void showData(){
-        for(int i = 0 ; i < nameofmenu.size() ; i++){
-            Toast.makeText(getApplicationContext(), "name"+i+" = " + nameofmenu.get(i), Toast.LENGTH_LONG).show();
+    public void setBoxvisibilityGone(){
+        for(int index = nameofmenu.size() ; index < 12 ; index++){
+            LinearLayout linearlayout = (LinearLayout) findViewById(menu[index]);
+            linearlayout.setVisibility(View.GONE);
+        }
+    }
+    public void setBoxvisibilityVisible(){
+        for(int index = 0 ; index < 12 ; index++){
+            LinearLayout linearlayout = (LinearLayout) findViewById(menu[index]);
+            linearlayout.setVisibility(View.VISIBLE);
         }
     }
     public void getAllingredient(){
@@ -118,7 +223,6 @@ public class Showmenufromdatabase extends AppCompatActivity {
         getIngredient("porkmeat");
         getIngredient("chickenbreast");
     }
-
 
 
     public void getIngredient(final String name){
@@ -156,9 +260,9 @@ public class Showmenufromdatabase extends AppCompatActivity {
     }
 
 
-
     public void compareandgetname(final String name){ // เอา input ที่ต้องการเปรียบเทียบมา
         String way = "menu/"+name+"/input";
+        setBoxvisibilityVisible();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference(way); // "ingredientibput/garlic"
 
@@ -198,12 +302,6 @@ public class Showmenufromdatabase extends AppCompatActivity {
     }
 
 
-
-    public void setAllbox(){
-        for(int i = 0 ; i < nameofmenu.size() ; i++){
-            //setImg(i);
-        }
-    }
     public void setImg(final int index){
         String name = nameofmenu.get(index); // ถ้ามีข้อมูลที่ index 1 ต้องเปลี่ยน
         String way = "menu/"+ name +"/img";
@@ -223,8 +321,6 @@ public class Showmenufromdatabase extends AppCompatActivity {
         });
     }
     public void Img(String urlImg, final int index){
-        // ต้องเซ็ตตาม box ที่ต้องการ อาจจะใช้ index ในการอ้างอิงของ R.id.imgshowmenu
-
         ImageView imageView = (ImageView) findViewById(imgmenu[index]); // จะต้องเปลี่ยนตาม ช่องปัจจุบัน
         Picasso.with(this).load(urlImg).placeholder(R.mipmap.ic_loading)
                 .error(R.mipmap.ic_loading)
@@ -242,6 +338,7 @@ public class Showmenufromdatabase extends AppCompatActivity {
                                 String Value = dataSnapshot.getValue(String.class);
                                 TextView textView = (TextView) findViewById(textmenu[index]); // id จะต้องเปลี่ยนทุกครั้ง
                                 textView.setText(Value);
+                                setBoxvisibilityGone();
 
                             }
                             @Override
@@ -255,24 +352,5 @@ public class Showmenufromdatabase extends AppCompatActivity {
                     public void onError() {
                     }
                 });
-    }/*
-    public void setName(final int index){
-        String name = nameofmenu.get(index); // ถ้ามีข้อมูลที่ index 1 ต้องเปลี่ยน
-        String way = "menu/"+ name +"/name";
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference(way);
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String Value = dataSnapshot.getValue(String.class);
-                TextView textView = (TextView) findViewById(textmenu[index]); // id จะต้องเปลี่ยนทุกครั้ง
-                textView.setText(Value);
-
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-
-            }
-        });
-    }*/
+    }
 }
