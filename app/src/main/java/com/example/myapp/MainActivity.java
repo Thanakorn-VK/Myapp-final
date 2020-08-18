@@ -6,14 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(getApplicationContext(), "Toast from MainActivity", Toast.LENGTH_LONG).show();
         try{
             this.getSupportActionBar().hide();
         }catch (NullPointerException e){
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), Ingredient.class);
-                //Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                //Intent i = new Intent(getApplicationContext(), Showmenufromdatabase.class);
                 startActivity(i);
             }
         });

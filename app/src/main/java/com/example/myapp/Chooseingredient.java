@@ -449,7 +449,7 @@ public class Chooseingredient extends AppCompatActivity {
         String way = "ingredientinput/" + name;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(way);
-        myRef.setValue("no");
+        myRef.setValue("no"); // แก้ตรงนี้
     }
 
     public void initialStatus(){

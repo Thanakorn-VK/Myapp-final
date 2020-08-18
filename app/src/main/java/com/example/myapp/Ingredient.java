@@ -30,7 +30,7 @@ public class Ingredient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ingredient);
-        Toast.makeText(getApplicationContext(), "read data", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Toast from Ingredient", Toast.LENGTH_LONG).show();
 
 
         //getStatus("ใบมะกรูด");
@@ -60,11 +60,10 @@ public class Ingredient extends AppCompatActivity {
         getStatus("porkmeat");
         getStatus("chickenbreast");
 
-        Button buttonNextChoose = (Button) findViewById(R.id.testtochoose);
-        buttonNextChoose.setOnClickListener(new View.OnClickListener() {
+        Button button2 = (Button) findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent i = new Intent(getApplicationContext(), Chooseingredient.class);
                 startActivity(i);
             }

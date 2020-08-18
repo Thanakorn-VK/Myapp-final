@@ -11,6 +11,12 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
+    <Button
+        android:id="@+id/showmenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -31,7 +37,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -63,7 +70,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -102,7 +110,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -134,7 +143,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -171,7 +181,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -203,7 +214,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -240,7 +252,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -272,7 +285,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -309,7 +323,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -341,7 +356,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -378,7 +394,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -410,7 +427,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/ripple"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"

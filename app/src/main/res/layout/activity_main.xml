@@ -16,7 +16,6 @@
         android:layout_marginTop="111dp"
         android:layout_marginEnd="84dp"
         android:layout_marginRight="84dp"
-        android:layout_marginBottom="55dp"
         android:background="@drawable/button_start"
         android:gravity="center"
         android:text="เริ่มต้นใช้งาน"
@@ -26,8 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -38,6 +36,7 @@
         android:layout_marginTop="117dp"
         android:layout_marginEnd="87dp"
         android:layout_marginRight="87dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,6 +48,7 @@
         android:layout_height="105dp"
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="55dp"
         android:layout_marginRight="55dp"
         android:layout_marginBottom="56dp"
@@ -56,6 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_start"
         app:srcCompat="@drawable/logocoe" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

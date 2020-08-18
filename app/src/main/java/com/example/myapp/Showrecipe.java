@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,16 +29,35 @@ public class Showrecipe extends AppCompatActivity {
     int [] Img = new int[] {R.mipmap.ic_pan,R.mipmap.ic_pot};
     int [] IndexText = new int[] {R.id.textdata0,R.id.textdata1,R.id.textdata2,R.id.textdata3,R.id.textdata4,
                                   R.id.textdata5,R.id.textdata6,R.id.textdata7,R.id.textdata8,R.id.textdata9,
-                                  R.id.textdata10,R.id.textdata11,R.id.textdata12,R.id.textdata13,R.id.textdata14};
-    int [] IndexText2 = new int[] {R.id.textdata15,R.id.textdata16,R.id.textdata17,R.id.textdata18,R.id.textdata19,
-                                   R.id.textdata20};
+                                  R.id.textdata10,R.id.textdata11,R.id.textdata12,R.id.textdata13,R.id.textdata14,
+                                  R.id.textdata15,R.id.textdata16,R.id.textdata17,R.id.textdata18,R.id.textdata19,R.id.textdata20};
+
+    int [] IndexText2 = new int[] {R.id.textdata21,R.id.textdata22,R.id.textdata23,R.id.textdata24,R.id.textdata25,
+                                   R.id.textdata26,R.id.textdata27,R.id.textdata28,R.id.textdata29,R.id.textdata30};
     ImageView imageView;
     TabLayout tabLayout;
     ViewPager viewPager;
     String urlImg = "";
-    public String nameMenu = "";
-    public String typeMenu = "";
     private Object ViewPagerAdapter;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.showrecipe);
+
+        getMenu();
+        imageView = (ImageView)findViewById(R.id.imgshowmenu);
+        tabLayout = findViewById(R.id.tablayout);
+        viewPager = findViewById(R.id.viewpager);
+        getTab();
+        Button back = (Button) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase.class);
+                startActivity(i);
+            }
+        });
+    }
+
     public void getMenu(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("nametoshow");
@@ -57,15 +77,6 @@ public class Showrecipe extends AppCompatActivity {
             }
 
         });
-    }
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getMenu();
-        setContentView(R.layout.showrecipe);
-        imageView = (ImageView)findViewById(R.id.imgshowmenu);
-        tabLayout = findViewById(R.id.tablayout);
-        viewPager = findViewById(R.id.viewpager);
-        getTab();
     }
     private void loadImageFromUrl(String urlImg) {
         Picasso.with(this).load(urlImg).placeholder(R.mipmap.ic_loading)
@@ -88,14 +99,10 @@ public class Showrecipe extends AppCompatActivity {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-
-
-        viewPagerAdapter.addFragment(Fragment.getInstance(),"ส่วนผสม");
-        viewPagerAdapter.addFragment(StatusFragment.getInstance(),"วิธีทำ");
-
-        viewPager.setAdapter(viewPagerAdapter);
-
-        tabLayout.setupWithViewPager(viewPager);
+            viewPagerAdapter.addFragment(Fragment.getInstance(),"ส่วนผสม");
+            viewPagerAdapter.addFragment(StatusFragment.getInstance(),"วิธีทำ");
+            viewPager.setAdapter(viewPagerAdapter);
+            tabLayout.setupWithViewPager(viewPager);
             }
         });
     }
@@ -198,7 +205,7 @@ public class Showrecipe extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
                 arr = Value.split("/");
-                showData(arr);
+                showData(arr); //บัคตรงนี้ถ้าย้อนกลับไปดูเมนูอื่น
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -209,7 +216,7 @@ public class Showrecipe extends AppCompatActivity {
     public void showData(String[] arr){
         for(int index = 0 ; index < arr.length ; index++){
             TextView textView = (TextView) findViewById(IndexText[index]);
-            textView.setText((index+1)+". "+arr[index]);
+            textView.setText((index+1)+". "+arr[index]); //บัคตรงนี้ถ้าย้อนกลับไปดูเมนูอื่น
         }
         for(int index = arr.length ; index < IndexText.length ; index++){
             TextView textView = (TextView) findViewById(IndexText[index]);

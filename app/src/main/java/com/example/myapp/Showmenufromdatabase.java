@@ -8,16 +8,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -34,23 +31,38 @@ public class Showmenufromdatabase extends AppCompatActivity {
     int [] textmenu = new int[] {R.id.textmenu,R.id.textmenu2,R.id.textmenu3,R.id.textmenu4,
                                  R.id.textmenu5,R.id.textmenu6,R.id.textmenu7,R.id.textmenu8,
                                  R.id.textmenu9,R.id.textmenu10,R.id.textmenu11,R.id.textmenu12};
+
     int [] menu = new int[] {R.id.menu1,R.id.menu2,R.id.menu3,R.id.menu4, // 0 1 2 3
                              R.id.menu5,R.id.menu6,R.id.menu7,R.id.menu8, // 4 5 6 7
                              R.id.menu9,R.id.menu10,R.id.menu11,R.id.menu12}; // 8 9 10 11
 
     public int index = 0;
     public int count = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmenufromdatabase);
         getAllingredient();
-        compareandgetname("eggfriedrice");
-        compareandgetname("ShrimpBasilFriedRice");
+
         compareandgetname("Porkbasilfriedrice");
+        compareandgetname("ShrimpBasilFriedRice");
+        compareandgetname("eggfriedrice");
         compareandgetname("Chickenbasilfriedrice");
+        compareandgetname("Chickenrice");
+        compareandgetname("MincedPorkBoiledRice");
+        compareandgetname("Padthaiwithshrimp"); // ต้องการให้ฟังก์ชันทั้งหมดนี้ทำงานให้เสร็จก่อน
         //setBoxvisibility();
 
+        Button showmenu = (Button) findViewById(R.id.showmenu);
+        showmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(int i = 0 ; i < nameofmenu.size() ; i++){
+                    Toast.makeText(getApplicationContext(), "index" + i +" = "+ nameofmenu.get(i), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         LinearLayout menu1 = (LinearLayout)findViewById(R.id.menu1);
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -274,6 +286,7 @@ public class Showmenufromdatabase extends AppCompatActivity {
                 conpareset.clear(); // เคลียร์ค่า
                 resultset.clear();
                 loadcompare(arr2); //โหลดค่าที่ต้องการเปรียบเทียบกับ input ที่เรามี
+
                 findName(name); // หาว่าค่าที่มีกับค่าที่ต้องการเปรียบเทียบว่าสามรถเอามาแสดงได้หรือไม้ **เมนูนั้นๆมีวัตถุดิบตรงตามที่เราเลือกครบทุกอัน
             }
             @Override
@@ -293,7 +306,9 @@ public class Showmenufromdatabase extends AppCompatActivity {
         }
         // for ตามอาเรย์ nameofmenu เพื่อแสดงทุกเมนูที่มี
         //setAllbox();
-        setImg(count);
+        if(count != -1){
+            setImg(count);
+        }
     }
     public void loadcompare(String[] arr2){
         for(int i = 0 ; i < arr2.length ; i++){

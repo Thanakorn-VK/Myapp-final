@@ -33,8 +33,26 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp">
+
+                        </TableRow>
+
                         <TextView
-                            android:id="@+id/textdata15"
+                            android:id="@+id/textdata21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="17dp" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" >
+
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/textdata22"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="17dp" />
@@ -44,7 +62,7 @@
                             android:layout_height="20dp" />
 
                         <TextView
-                            android:id="@+id/textdata16"
+                            android:id="@+id/textdata23"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="17dp" />
@@ -54,7 +72,7 @@
                             android:layout_height="20dp" />
 
                         <TextView
-                            android:id="@+id/textdata17"
+                            android:id="@+id/textdata24"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="17dp" />
@@ -64,7 +82,7 @@
                             android:layout_height="20dp" />
 
                         <TextView
-                            android:id="@+id/textdata18"
+                            android:id="@+id/textdata25"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="17dp" />
@@ -74,7 +92,7 @@
                             android:layout_height="20dp" />
 
                         <TextView
-                            android:id="@+id/textdata19"
+                            android:id="@+id/textdata26"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="17dp" />
@@ -84,7 +102,37 @@
                             android:layout_height="20dp" />
 
                         <TextView
-                            android:id="@+id/textdata20"
+                            android:id="@+id/textdata27"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="17dp" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+
+                        <TextView
+                            android:id="@+id/textdata28"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="17dp" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+
+                        <TextView
+                            android:id="@+id/textdata29"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="17dp" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+
+                        <TextView
+                            android:id="@+id/textdata30"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="17dp" />
