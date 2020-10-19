@@ -11,12 +11,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(getApplicationContext(), "Toast from MainActivity", Toast.LENGTH_LONG).show();
+
         try{
             this.getSupportActionBar().hide();
         }catch (NullPointerException e){
@@ -27,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Ingredient.class);
-                //Intent i = new Intent(getApplicationContext(), Showmenufromdatabase.class);
+                //Intent i = new Intent(getApplicationContext(), Ingredient.class);
+                Intent i = new Intent(getApplicationContext(), Favourite.class);
                 startActivity(i);
             }
         });

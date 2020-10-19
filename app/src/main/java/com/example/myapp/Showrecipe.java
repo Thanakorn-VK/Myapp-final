@@ -24,8 +24,12 @@ import java.util.ArrayList;
 
 public class Showrecipe extends AppCompatActivity {
     String[] arr;
+    String[] arrbuffer;
     String[] arrText2;
+    String[] arrText2buffer;
     String Menu = ""; // ตรงนี้ต้องเป็นตัวแปรที่มาจากการเลือกเมนูอาหารจากหน้าที่แล้ว
+    public int current_img;
+    String currentName;
     int [] Img = new int[] {R.mipmap.ic_pan,R.mipmap.ic_pot};
     int [] IndexText = new int[] {R.id.textdata0,R.id.textdata1,R.id.textdata2,R.id.textdata3,R.id.textdata4,
                                   R.id.textdata5,R.id.textdata6,R.id.textdata7,R.id.textdata8,R.id.textdata9,
@@ -34,6 +38,8 @@ public class Showrecipe extends AppCompatActivity {
 
     int [] IndexText2 = new int[] {R.id.textdata21,R.id.textdata22,R.id.textdata23,R.id.textdata24,R.id.textdata25,
                                    R.id.textdata26,R.id.textdata27,R.id.textdata28,R.id.textdata29,R.id.textdata30};
+
+    int [] ImgStatus = new int [] {R.mipmap.ic_unlike,R.mipmap.ic_like};
     ImageView imageView;
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -42,22 +48,37 @@ public class Showrecipe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showrecipe);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getMenu();
         imageView = (ImageView)findViewById(R.id.imgshowmenu);
         tabLayout = findViewById(R.id.tablayout);
         viewPager = findViewById(R.id.viewpager);
         getTab();
-        Button back = (Button) findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
+        LinearLayout statuslayout = (LinearLayout)findViewById(R.id.statuslayout);
+        statuslayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase.class);
-                startActivity(i);
+                    statusClick();
             }
         });
     }
+    public void statusClick(){
+        current_img++;
+        current_img = current_img % ImgStatus.length;
+        ImageView imageView3 = (ImageView) findViewById(R.id.status);
+        imageView3.setImageResource(ImgStatus[current_img]);
 
+        String way = "menu/"+ currentName +"/status";
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(way);
+        if(current_img == 0){
+            myRef.setValue("unlike");
+        }
+        else if(current_img == 1) {
+            myRef.setValue("like");
+        }
+    }
     public void getMenu(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("nametoshow");
@@ -65,11 +86,40 @@ public class Showrecipe extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
+                currentName = Value;
                 getUrl(Value);
                 getName(Value);
                 getType(Value);
                 getData(Value);
                 getDataText(Value);
+                getStatus(Value);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "fail read date", Toast.LENGTH_LONG).show();
+            }
+
+        });
+    }
+    public void getStatus(final String name){
+        String way = "menu/"+ name +"/status";
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(way);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String Value = dataSnapshot.getValue(String.class);
+
+                if(Value.equals("unlike")) {
+                    current_img = 0;
+                    ImageView imageView1 = (ImageView) findViewById(R.id.status);
+                    imageView1.setImageResource(ImgStatus[0]);
+                }
+                if(Value.equals("like")) {
+                    current_img = 1;
+                    ImageView imageView2 = (ImageView) findViewById(R.id.status);
+                    imageView2.setImageResource(ImgStatus[1]);
+                }
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -195,6 +245,20 @@ public class Showrecipe extends AppCompatActivity {
 
 
 
+    public void setTextempty1(){
+        for(int index = 0 ; index < IndexText.length ; index++){
+            TextView textView = (TextView) findViewById(IndexText[index]);
+            //textView.setVisibility(View.VISIBLE);
+            textView.setText(" ");
+        }
+    }
+    public void setTextempty2(){
+        for(int index = 0 ; index < IndexText2.length ; index++){
+            TextView textView = (TextView) findViewById(IndexText2[index]);
+            //textView.setVisibility(View.VISIBLE);
+            textView.setText("");
+        }
+    }
 
     public void getData(final String name){
         String way = "menu/"+ name +"/text1";
@@ -216,12 +280,15 @@ public class Showrecipe extends AppCompatActivity {
     public void showData(String[] arr){
         for(int index = 0 ; index < arr.length ; index++){
             TextView textView = (TextView) findViewById(IndexText[index]);
+            textView.setVisibility(View.VISIBLE);
+            //Toast.makeText(getApplicationContext(), "text"+index+" is "+arr[index], Toast.LENGTH_LONG).show();
             textView.setText((index+1)+". "+arr[index]); //บัคตรงนี้ถ้าย้อนกลับไปดูเมนูอื่น
         }
         for(int index = arr.length ; index < IndexText.length ; index++){
             TextView textView = (TextView) findViewById(IndexText[index]);
             textView.setVisibility(View.GONE);
         }
+
     }
     public void getDataText(final String name){
         String way = "menu/"+ name +"/text2";
@@ -243,6 +310,8 @@ public class Showrecipe extends AppCompatActivity {
     public void showText(String[] arr){
         for(int index = 0 ; index < arr.length ; index++){
             TextView textView = (TextView) findViewById(IndexText2[index]);
+            //Toast.makeText(getApplicationContext(), "text"+index+" is "+arr[index], Toast.LENGTH_LONG).show();
+            textView.setVisibility(View.VISIBLE);
             textView.setText((index+1)+". "+arr[index]);
         }
 

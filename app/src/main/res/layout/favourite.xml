@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical">
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableRow
+            android:layout_width="410dp"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/fmenu1"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fmenu2"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="410dp"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/fmenu3"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fmenu4"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="410dp"
+            android:layout_height="150dp">
+
+            <LinearLayout
+                android:id="@+id/fmenu5"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fmenu6"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="410dp"
+            android:layout_height="150dp">
+
+            <LinearLayout
+                android:id="@+id/fmenu7"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fmenu8"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="410dp"
+            android:layout_height="150dp">
+
+            <LinearLayout
+                android:id="@+id/fmenu9"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fmenu10"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="410dp"
+            android:layout_height="150dp">
+
+            <LinearLayout
+                android:id="@+id/fmenu11"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fmenu12"
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <ImageView
+                        android:id="@+id/fimgmenu12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ftextmenu12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading"
+                        android:textSize="20dp" />
+                </TableRow>
+            </LinearLayout>
+        </TableRow>
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical">
-        <Button
-            android:id="@+id/cooking"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></Button>
-
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="660dp"
             android:layout_gravity="center">
 
 
             <LinearLayout
                 android:layout_width="410dp"
                 android:layout_height="583dp"
-                android:orientation="vertical"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView"
@@ -106,7 +104,7 @@
 
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
 
                     <ToggleButton
                         android:id="@+id/buttonbabycorn"
@@ -134,9 +132,10 @@
                         android:textOn="คะน้า"
                         android:textSize="18sp" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
 
                     <ToggleButton
                         android:id="@+id/buttoncarrot"
@@ -164,9 +163,10 @@
                         android:textOn="ต้นหอม"
                         android:textSize="18sp" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
 
                     <ToggleButton
                         android:id="@+id/buttonlemongrass"
@@ -194,9 +194,10 @@
                         android:textOn="ถั่วฝักยาว"
                         android:textSize="18sp" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
 
                     <ToggleButton
                         android:id="@+id/buttoncucumber"
@@ -225,21 +226,22 @@
                         android:textSize="18sp" />
 
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonkaffirlimeleaves"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_kaffirlimeleaves"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="ใบมะกรูด"
                         android:textOff="ใบมะกรูด"
                         android:textOn="ใบมะกรูด"
-                        android:text="ใบมะกรูด"
                         android:textSize="18sp" />
 
                     <ToggleButton
@@ -255,111 +257,117 @@
                         android:textOn="ใบกะเพรา"
                         android:textSize="18sp" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonchinesecabbage"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_chinesecabbage"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="ผักกาดขาว"
                         android:textOff="ผักกาดขาว"
                         android:textOn="ผักกาดขาว"
-                        android:text="ผักกาดขาว"
                         android:textSize="18sp" />
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttoncoriander"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_coriander"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="ผักชี"
                         android:textOff="ผักชี"
                         android:textOn="ผักชี"
-                        android:text="ผักชี"
                         android:textSize="18sp" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonwaterspinach"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_waterspinach"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="ผักบุ้ง"
                         android:textOff="ผักบุ้ง"
                         android:textOn="ผักบุ้ง"
-                        android:text="ผักบุ้ง"
                         android:textSize="18sp" />
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonchile"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_chile"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="พริก"
                         android:textOff="พริก"
                         android:textOn="พริก"
-                        android:text="พริก"
                         android:textSize="18sp" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
+                    android:layout_height="97dp">
+
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttontomato"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_tomato"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="มะเขือเทศ"
                         android:textOff="มะเขือเทศ"
                         android:textOn="มะเขือเทศ"
-                        android:text="มะเขือเทศ"
                         android:textSize="18sp" />
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonlemon"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_lemon"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="มะนาว"
                         android:textOff="มะนาว"
                         android:textOn="มะนาว"
-                        android:text="มะนาว"
                         android:textSize="18sp" />
 
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
-                    android:layout_height="97dp" >
-                <ToggleButton
-                    android:paddingLeft="15dp"
-                    android:id="@+id/buttononion"
-                    android:layout_width="205dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/button_ingre"
-                    android:drawableLeft="@mipmap/ic_onion"
-                    android:gravity="left|center_vertical"
-                    android:textOff="หัวหอมใหญ่"
-                    android:textOn="หัวหอมใหญ่"
-                    android:text="หัวหอมใหญ่"
-                    android:textSize="18sp" />
+                    android:layout_height="97dp">
+
+                    <ToggleButton
+                        android:id="@+id/buttononion"
+                        android:layout_width="205dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/button_ingre"
+                        android:drawableLeft="@mipmap/ic_onion"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="หัวหอมใหญ่"
+                        android:textOff="หัวหอมใหญ่"
+                        android:textOn="หัวหอมใหญ่"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TextView
@@ -377,74 +385,83 @@
 
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonshrimp"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_shrimp"
                         android:gravity="left|center_vertical"
-                        android:textOff="กุ้ง"
-                        android:textOn="กุ้ง"
+                        android:paddingLeft="15dp"
                         android:text="กุ้ง"
                         android:textAlignment="gravity"
+                        android:textOff="กุ้ง"
+                        android:textOn="กุ้ง"
                         android:textSize="18sp" />
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonegg"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_egg"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="ไข่ไก่"
                         android:textOff="ไข่ไก่"
                         android:textOn="ไข่ไก่"
-                        android:text="ไข่ไก่"
                         android:textSize="18sp" />
 
                 </TableRow>
+
                 <TableRow
                     android:layout_width="410dp"
                     android:layout_height="97dp">
 
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonchickenbreast"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_chickenbreast"
                         android:gravity="left|center_vertical"
-                        android:textOff="เนื้อไก่"
-                        android:textOn="เนื้อไก่"
+                        android:paddingLeft="15dp"
                         android:text="เนื้อไก่"
                         android:textAlignment="gravity"
-                        android:textSize="18sp"
-                        />
+                        android:textOff="เนื้อไก่"
+                        android:textOn="เนื้อไก่"
+                        android:textSize="18sp" />
 
                     <ToggleButton
-                        android:paddingLeft="15dp"
                         android:id="@+id/buttonporkmeat"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button_ingre"
                         android:drawableLeft="@mipmap/ic_porkmeat"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="เนื้อหมู"
                         android:textOff="เนื้อหมู"
                         android:textOn="เนื้อหมู"
-                        android:text="เนื้อหมู"
                         android:textSize="18sp" />
 
                 </TableRow>
-
 
 
             </LinearLayout>
 
 
         </ScrollView>
+
+        <Button
+            android:id="@+id/cooking"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/button_cycle"
+            android:text="ตรวจสอบรายการ"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
 
     </LinearLayout>
 </LinearLayout>

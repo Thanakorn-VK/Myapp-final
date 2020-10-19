@@ -30,7 +30,6 @@ public class Ingredient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ingredient);
-        Toast.makeText(getApplicationContext(), "Toast from Ingredient", Toast.LENGTH_LONG).show();
 
 
         //getStatus("ใบมะกรูด");
@@ -151,7 +150,7 @@ public class Ingredient extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
-                if(Value.equals("yes")) {
+                if(Value.equals("true")) {
                     switch(index) {
                         case 1:
                             ImageView imageView1 = (ImageView) findViewById(R.id.img1);
