@@ -22,6 +22,7 @@
         <activity android:name=".Chooseingredient"></activity>
         <activity android:name=".Showmenufromdatabase"></activity>
         <activity android:name=".Favourite"></activity>
+        <activity android:name=".Home"></activity>
         <activity android:name=".Showrecipe"
             android:parentActivityName=".Showmenufromdatabase"></activity>
     </application>
