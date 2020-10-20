@@ -41,7 +41,8 @@
                     android:background="@drawable/ripple"
                     android:clickable="true"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    tools:visibility="gone">
 
                     <TableRow
                         android:layout_width="match_parent"
