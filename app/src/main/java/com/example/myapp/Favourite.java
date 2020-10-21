@@ -40,6 +40,11 @@ public class Favourite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favourite);
+        try{
+            this.getSupportActionBar().hide();
+        }catch (NullPointerException e){
+
+        }
 
         checkStatus("Porkbasilfriedrice");
         checkStatus("ShrimpBasilFriedRice");
@@ -47,7 +52,8 @@ public class Favourite extends AppCompatActivity {
         checkStatus("Chickenbasilfriedrice");
         checkStatus("Chickenrice");
         checkStatus("MincedPorkBoiledRice");
-        checkStatus("Padthaiwithshrimp"); // ต้องการให้ฟังก์ชันทั้งหมดนี้ทำงานให้เสร็จก่อน
+        checkStatus("Padthaiwithshrimp");
+        checkStatus("Stirfriedmorningglory"); // ต้องการให้ฟังก์ชันทั้งหมดนี้ทำงานให้เสร็จก่อน
 
         LinearLayout menu1 = (LinearLayout)findViewById(R.id.fmenu1);
         menu1.setOnClickListener(new View.OnClickListener() {

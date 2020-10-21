@@ -16,6 +16,23 @@ android:orientation="vertical">
         android:orientation="vertical">
 
         <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="27dp"
+                android:text="เมนูโปรด"
+                android:textColor="@color/colorWrite"
+                android:textSize="25dp" />
+        </TableRow>
+
+        <TableRow
             android:layout_width="410dp"
             android:layout_height="150dp"
             android:orientation="horizontal">
