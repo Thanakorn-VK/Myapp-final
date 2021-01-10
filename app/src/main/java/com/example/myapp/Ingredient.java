@@ -16,6 +16,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Ingredient extends AppCompatActivity {
     int [] Img = new int[] {    R.drawable.garlic,R.drawable.tomato,R.drawable.lemongrass,R.drawable.chinesecabbage,
@@ -341,6 +344,33 @@ public class Ingredient extends AppCompatActivity {
         });
 
     }
+    public static int sum(int a, int b){
+        return a+b;
+    }
+    public static String[] Sort_by_Name_AtoZ(String[] b){
+        Arrays.sort(b);
+        return b;
+    }
+    public static String[] Sort_by_Name_ZtoA(String[] b){
+        Arrays.sort(b, Collections.reverseOrder());
+        return b;
+    }
+
+    CalculatorStandardEuclideanDistance cal = new CalculatorStandardEuclideanDistance();
+
+    public double Calculator_Similarity_meaure(double n,double[] X,double[] Y){
+        double result = 0;
+        result = 1/(1+cal.Calculator_Standard_Euclidean_Distance(n,X,Y));
+        return result;
+    }
+    public boolean Firebase(String name){
+        FirebaseInput firebase = new FirebaseInput();
+        boolean state = false;
+        state = firebase.PuttoFirebase(name);
+        return state;
+    }
+
+
     public void incIndex() {
         index = index + 1;
     }

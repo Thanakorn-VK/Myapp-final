@@ -320,4 +320,5 @@ public class Showrecipe extends AppCompatActivity {
             textView.setVisibility(View.GONE);
         }
     }
+
 }

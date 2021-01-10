@@ -19,11 +19,13 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Showmenufromdatabase extends AppCompatActivity {
+
     ArrayList<String> input = new ArrayList<String>();
     ArrayList<String> nameofmenu = new ArrayList<String>();
     HashSet<String> inputset = new HashSet <String>();
     HashSet <String> conpareset = new HashSet <String>();
     HashSet <String> resultset = new HashSet <String>();
+
     int [] imgmenu = new int[] {R.id.imgmenu,R.id.imgmenu2,R.id.imgmenu3,R.id.imgmenu4,
                                 R.id.imgmenu5,R.id.imgmenu6,R.id.imgmenu7,R.id.imgmenu8,
                                 R.id.imgmenu9,R.id.imgmenu10,R.id.imgmenu11,R.id.imgmenu12};
@@ -38,21 +40,28 @@ public class Showmenufromdatabase extends AppCompatActivity {
 
     public int index = 0;
     public int count = -1;
-
+    String str = "";
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmenufromdatabase);
-        getAllingredient();
 
-        compareandgetname("Porkbasilfriedrice");
-        compareandgetname("ShrimpBasilFriedRice");
-        compareandgetname("eggfriedrice");
-        compareandgetname("Chickenbasilfriedrice");
-        compareandgetname("Chickenrice");
-        compareandgetname("MincedPorkBoiledRice");
-        compareandgetname("Padthaiwithshrimp"); // ต้องการให้ฟังก์ชันทั้งหมดนี้ทำงานให้เสร็จก่อน
-
-
+        String way = "menushow";
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(way);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String Value = dataSnapshot.getValue(String.class);
+                String [] arrstr = Value.split("/");
+                for(int i = 0 ; i < arrstr.length ; i++){
+                    findName2(arrstr[i]);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
 
         Button showmenu = (Button) findViewById(R.id.showrecipe);
         showmenu.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +72,7 @@ public class Showmenufromdatabase extends AppCompatActivity {
                 }
             }
         });
+
         LinearLayout menu1 = (LinearLayout)findViewById(R.id.menu1);
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,7 +246,6 @@ public class Showmenufromdatabase extends AppCompatActivity {
         getIngredient("chickenbreast");
     }
 
-
     public void getIngredient(final String name){
         String way = "ingredientinput/" + name;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -286,7 +295,6 @@ public class Showmenufromdatabase extends AppCompatActivity {
                 conpareset.clear(); // เคลียร์ค่า
                 resultset.clear();
                 loadcompare(arr2); //โหลดค่าที่ต้องการเปรียบเทียบกับ input ที่เรามี รายการผักที่อยู่ใน data base
-
                 findName(name); // หาว่าค่าที่มีกับค่าที่ต้องการเปรียบเทียบว่าสามรถเอามาแสดงได้หรือไม้ **เมนูนั้นๆมีวัตถุดิบตรงตามที่เราเลือกครบทุกอัน
             }
             @Override
@@ -296,16 +304,23 @@ public class Showmenufromdatabase extends AppCompatActivity {
 
         });
     }
+    public void findName2(String name){
+        setBoxvisibilityVisible();
+        nameofmenu.add(name); // ถ้ามี จะต้องแอดชื่อเมนูนั้นๆไปยังอาเรย์ nameofmenu
+        count++;
+        if(count != -1){
+            setImg(count);
+        }
+    }
     public void findName(String name){
         loadInputtoset();
         resultset = inputset;
         resultset.retainAll(conpareset);
         if(resultset.equals(conpareset)){
+            // ************
             nameofmenu.add(name); // ถ้ามี จะต้องแอดชื่อเมนูนั้นๆไปยังอาเรย์ nameofmenu
             count++;
         }
-        // for ตามอาเรย์ nameofmenu เพื่อแสดงทุกเมนูที่มี
-        //setAllbox();
         if(count != -1){
             setImg(count);
         }
@@ -315,11 +330,7 @@ public class Showmenufromdatabase extends AppCompatActivity {
             conpareset.add(arr2[i]);
         }
     }
-    public void showmenu(){
-        for(int i = 0 ; i < nameofmenu.size() ; i++){
-            Toast.makeText(getApplicationContext(), nameofmenu.get(i), Toast.LENGTH_LONG).show();
-        }
-    }
+
     public void setImg(final int index){
         String name = nameofmenu.get(index); // ถ้ามีข้อมูลที่ index 1 ต้องเปลี่ยน
         String way = "menu/"+ name +"/img";

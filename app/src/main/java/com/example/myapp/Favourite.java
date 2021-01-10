@@ -53,7 +53,9 @@ public class Favourite extends AppCompatActivity {
         checkStatus("Chickenrice");
         checkStatus("MincedPorkBoiledRice");
         checkStatus("Padthaiwithshrimp");
-        checkStatus("Stirfriedmorningglory"); // ต้องการให้ฟังก์ชันทั้งหมดนี้ทำงานให้เสร็จก่อน
+        checkStatus("Stirfriedmorningglory");
+        checkStatus("Friedporkbelly");
+        // ต้องการให้ฟังก์ชันทั้งหมดนี้ทำงานให้เสร็จก่อน
 
         LinearLayout menu1 = (LinearLayout)findViewById(R.id.fmenu1);
         menu1.setOnClickListener(new View.OnClickListener() {

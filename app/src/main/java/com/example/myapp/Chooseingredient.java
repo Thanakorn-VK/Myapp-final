@@ -7,6 +7,7 @@ import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,13 +20,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
+import static com.example.myapp.R.drawable.press;
 
 public class Chooseingredient extends AppCompatActivity {
     final boolean state[] = {true,true,true,true,true,true,
                              true,true,true,true,true,true,
                              true,true,true,true,true,true,
                              true,true,true,true,true,true,true};
+    boolean state0 = true;
+    boolean state1 = true;
+    boolean state2 = true;
 
+
+    boolean statebutton[] = {true,true}; //false โดนกด
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +44,75 @@ public class Chooseingredient extends AppCompatActivity {
         buttonShowmanu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initialStatusTrue(); //  เมื่อกดปุ่มจะทำให้ทุกวัตถุดิบเป็น true
-                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase.class);
+
+
+
+
+                Intent i = new Intent(getApplicationContext(), popup_priority.class);
                 startActivity(i);
             }
         });
 
         initialStatus();
+
+        LinearLayout buttonrec0 = (LinearLayout)findViewById(R.id.ltoh);
+        buttonrec0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(statebutton[0]) {
+                    LinearLayout linearLayout = (LinearLayout)findViewById(R.id.ltoh);
+                    linearLayout.setBackgroundResource(R.drawable.press);
+                    statebutton[0] = false;
+                    statebutton[1] = true;
+                    if(statebutton[1]) {
+                        LinearLayout linearLayout2 = (LinearLayout)findViewById(R.id.htol);
+                        linearLayout2.setBackgroundResource(R.drawable.notpress);
+                    }
+                }
+
+            }
+        });
+        LinearLayout buttonrec1 = (LinearLayout)findViewById(R.id.htol);
+        buttonrec1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(statebutton[1]) {
+                    LinearLayout linearLayout = (LinearLayout)findViewById(R.id.htol);
+                    linearLayout.setBackgroundResource(R.drawable.press);
+                    statebutton[1] = false;
+                    statebutton[0] = true;
+                    if(statebutton[0]) {
+                        LinearLayout linearLayout2 = (LinearLayout)findViewById(R.id.ltoh);
+                        linearLayout2.setBackgroundResource(R.drawable.notpress);
+                    }
+                }
+            }
+        });
+
+        LinearLayout menu0 = (LinearLayout)findViewById(R.id.buttonpage0);
+        menu0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(state0) setBoxvisibilityGone0();
+                else setBoxvisibility0();
+            }
+        });
+        LinearLayout menu1 = (LinearLayout)findViewById(R.id.buttonpage1);
+        menu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(state1) setBoxvisibilityGone1();
+                else setBoxvisibility1();
+            }
+        });
+        LinearLayout menu2 = (LinearLayout)findViewById(R.id.buttonpage2);
+        menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(state2) setBoxvisibilityGone2();
+                else setBoxvisibility2();
+            }
+        });
         Button item1 = (Button) findViewById(R.id.buttongarlic);
         Button item2 = (Button) findViewById(R.id.buttoncabbage);
         Button item3 = (Button) findViewById(R.id.buttonginger);
@@ -66,6 +138,7 @@ public class Chooseingredient extends AppCompatActivity {
         Button item23 = (Button) findViewById(R.id.buttonegg);
         Button item24 = (Button) findViewById(R.id.buttonchickenbreast);
         Button item25 = (Button) findViewById(R.id.buttonporkmeat);
+
         item1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -443,6 +516,36 @@ public class Chooseingredient extends AppCompatActivity {
         });
 
     }
+    public void setBoxvisibilityGone0(){
+        LinearLayout linearlayout = (LinearLayout) findViewById(R.id.page0);
+        linearlayout.setVisibility(View.GONE);
+        state0 = false;
+    }
+    public void setBoxvisibilityGone1(){
+        LinearLayout linearlayout = (LinearLayout) findViewById(R.id.page1);
+        linearlayout.setVisibility(View.GONE);
+        state1 = false;
+    }
+    public void setBoxvisibilityGone2(){
+        LinearLayout linearlayout = (LinearLayout) findViewById(R.id.page2);
+        linearlayout.setVisibility(View.GONE);
+        state2 = false;
+    }
+    public void setBoxvisibility0(){
+        LinearLayout linearlayout = (LinearLayout) findViewById(R.id.page0);
+        linearlayout.setVisibility(View.VISIBLE);
+        state0 = true;
+    }
+    public void setBoxvisibility1(){
+        LinearLayout linearlayout = (LinearLayout) findViewById(R.id.page1);
+        linearlayout.setVisibility(View.VISIBLE);
+        state1 = true;
+    }
+    public void setBoxvisibility2(){
+        LinearLayout linearlayout = (LinearLayout) findViewById(R.id.page2);
+        linearlayout.setVisibility(View.VISIBLE);
+        state2 = true;
+    }
     public void changC(int index){
         state[index] = !(state[index]);
     }
@@ -457,36 +560,6 @@ public class Chooseingredient extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(way);
         myRef.setValue("true"); // แก้ตรงนี้
-    }
-    public void initialStatusTrue(){
-        String fruits[] = {"garlic",
-                "lemongrass",
-                "tomato",
-                "chinesecabbage",
-                "cabbage",
-                "chile",
-                "kaffirlimeleaves",
-                "yardlongbeans",
-                "carrot",
-                "lemon",
-                "babycorn",
-                "springonion",
-                "kale",
-                "onion",
-                "cucumber",
-                "ginger",
-                "galangal",
-                "blockkerry",
-                "coriander",
-                "holybasil",
-                "waterspinach",
-                "egg",
-                "shrimp",
-                "porkmeat",
-                "chickenbreast"};
-        for (String fruit : fruits){
-            setStatusTrue(fruit);
-        }
     }
     public void initialStatus(){
         String fruits[] = {"garlic",
@@ -518,4 +591,6 @@ public class Chooseingredient extends AppCompatActivity {
             setStatus(fruit);
         }
     }
+
 }
+

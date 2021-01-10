@@ -18,6 +18,7 @@ public class Home extends AppCompatActivity {
         }catch (NullPointerException e){
 
         }
+
         Button logo1 = (Button) findViewById(R.id.logo1);
         logo1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapp">
-<uses-permission android:name="android.permission.BIND_INCALL_SERVICE"
-    tools:ignore="ProtectedPermissions"/>
+
+    <uses-permission
+        android:name="android.permission.BIND_INCALL_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".popup_priority"
+            android:theme="@style/popup"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,13 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Ingredient"></activity>
-        <activity android:name=".Chooseingredient"></activity>
-        <activity android:name=".Showmenufromdatabase"></activity>
-        <activity android:name=".Favourite"></activity>
-        <activity android:name=".Home"></activity>
-        <activity android:name=".Showrecipe"
-            android:parentActivityName=".Showmenufromdatabase"></activity>
+        <activity android:name=".Ingredient" />
+        <activity android:name=".Chooseingredient" />
+        <activity android:name=".Showmenufromdatabase" />
+        <activity android:name=".Favourite" />
+        <activity android:name=".Home" />
+        <activity
+            android:name=".Showrecipe"
+            android:parentActivityName=".Showmenufromdatabase" />
     </application>
 
 </manifest>
