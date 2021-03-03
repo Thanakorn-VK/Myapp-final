@@ -48,6 +48,9 @@ class Food implements Comparable<Food>{
         return this.value - comparevalue;
     }
 }
+
+
+
 public class popup_priority extends Activity {
 
     ArrayList<String> input = new ArrayList<String>();
@@ -55,34 +58,32 @@ public class popup_priority extends Activity {
     int[] parameterinput = {0,0,0};
     int parameter_ingredient=5,parameter_type=5,parameter_time=5,parameter_level=5;
     String[] menu = {"chickenbreast/chile/garlic/holybasil",
-
             "chickenbreast/coriander/cucumber/garlic/ginger",
-
             "coriander/garlic/porkmeat/springonion",
             "porkmeat/coriander",
             "chile/chinesecabbage/egg/garlic/lemon/shrimp",
             "waterspinach/chile",
             "chile/garlic/holybasil/porkmeat",
             "carrot/egg/garlic/springonion",
-    "shrimp/chile/egg/carrot/kale/garlic",
-    "porkmeat/kaffirlimeleaves/lemongrass/chile/garlic"};
+            "shrimp/chile/egg/carrot/kale/garlic",
+            "porkmeat/kaffirlimeleaves/lemongrass/chile/garlic"};
 
-    String[] name = {"Chickenbasilfriedrice",
-            "Chickenrice",
-            "MincedPorkBoiledRice",
-            "Friedporkbelly",
-            "Padthaiwithshrimp",
-            "Stirfriedmorningglory",
-            "Porkbasilfriedrice",
-            "eggfriedrice",
-    "Shrimp PasteFriedRice",
-    "SouthernStirFriedPork"};
+    String[] name = {"Chickenbasilfriedrice",   //  กระเพราไก่
+            "Chickenrice",                      //  ข้าวมันไก่
+            "MincedPorkBoiledRice",             //  ข้าวต้มหมู
+            "Friedporkbelly",                   //หมูทอด
+            "Padthaiwithshrimp",                //ผัดไทยกุ้งสด
+            "Stirfriedmorningglory",            //ผัดผักบุ้ง
+            "Porkbasilfriedrice",               //กระเพราหมู
+            "eggfriedrice",                     //ข้างผัดไข่
+            "Shrimp PasteFriedRice",            //ผัดน้ำพริกกุ้งเสียบ
+            "SouthernStirFriedPork"};           //คั่วกิ้งหมู
 
-    int[] time = {1,3,2,1,2,1,1,1,1,1};
-
-    int[] category = {1,1,2,3,1,1,1,1,1,1};
-
-    int[] level = {2,3,1,1,3,1,2,1,1,1};
+    int[] time =     {1,2,2,1,2,1,1,1,1,2}; // 1 น้อยกว่า 30 : 2 ระหว่าง 30 กับ 60 : 3 มากกว่า 60
+                   //{1,2,2,1,2,1,1,1,1,1};
+    int[] category = {1,3,2,1,1,1,1,1,1,1}; // 1 ผัด : 2 ต้ม : 3 นึ่ง
+                   //{1,2,2,1,2,1,1,1,1,1};
+    int[] level =    {1,2,2,1,3,1,1,1,1,2}; // 1 ง่าย : 2 ปานกลาง : 3 ยาก
 
 
     Set<String> hash_Set1 = new HashSet<String>();
@@ -117,9 +118,6 @@ public class popup_priority extends Activity {
 
     public static int Calcurate(double Weight_Ingredient,double Weight_Time,double Weight_Category,double Weight_Level
             ,int Amount_Ingredient,boolean Check_Time,boolean Check_Category,boolean Check_Level){
-        //  Amount_Ingredient คือจำนวนวัตถุดิบที่ตรงกัน ยกตัวอย่างเช่น ผู้ใช้เลือก 1 2 3 เมนูมี 2 3 4
-        // (0.65-0.65) + (0.65-0.65) + (0.65-0)
-        //  ค่าของ Amount_Ingredient จะเท่ากับ 1
         int Result;
         double Value = 0;
         double sum = Weight_Level + Weight_Category + Weight_Time + Weight_Ingredient;
@@ -204,19 +202,6 @@ public class popup_priority extends Activity {
         for(int i = 0 ; i < name.length ; i++){
             obj[i] = new Food();
         }
-        /*
-        obj[0] = new Food();
-        obj[1] = new Food();
-        obj[2] = new Food();
-        obj[3] = new Food();
-        obj[4] = new Food();
-        obj[5] = new Food();
-        obj[6] = new Food();
-        obj[7] = new Food();
-        obj[8] = new Food();
-        obj[9] = new Food();
-
-         */
         int size;
         boolean a=false,b=false,c=false;
         for(int i = 0 ; i < name.length ; i++){
@@ -241,9 +226,12 @@ public class popup_priority extends Activity {
         }
         Arrays.sort(obj);
         String str = "";
+
+        // แบ่ง array เป็น 5 ชุด ชุดล่ะ 10 เมนูไปยัง menushow1 - menushow5
         for(Food i : obj){
             str = str + i.getName() + "/";
         }
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("menushow");
         myRef.setValue(str);
@@ -282,7 +270,7 @@ public class popup_priority extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int) (width * .8), (int) (height * .7));
+        getWindow().setLayout((int) (width * .9), (int) (height * .9));
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
         params.x = 0;
@@ -290,21 +278,7 @@ public class popup_priority extends Activity {
 
         getWindow().setAttributes(params);
 
-        Button popup_ingre = (Button) findViewById(R.id.popup1);
-        popup_ingre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (state1) setBoxvisibilityGone1();
-                else setBoxvisibility1();
 
-                setBoxvisibilityGone2();
-                setBoxvisibilityGone3();
-                setBoxvisibilityGone4();
-                state2 = false;
-                state3 = false;
-                state4 = false;
-            }
-        });
         Button popup_type = (Button) findViewById(R.id.popup2);
         popup_type.setOnClickListener(new View.OnClickListener() {
             @Override

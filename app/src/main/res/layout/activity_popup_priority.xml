@@ -4,64 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorGray"
     android:orientation="vertical"
     tools:context=".popup_priority">
 
     <LinearLayout
-        android:layout_width="282dp"
-        android:layout_height="657dp"
-        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CBCCCB"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
+
         <TableRow
             android:layout_width="410dp"
-            android:layout_height="100dp"
-            android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ลำดับความสำคัญ"
-            android:textColor="@color/colorBlack"
-            android:textSize="30dp"></TextView>
+            android:gravity="center|top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="กำหนดความสำคัญ"
+                android:textColor="@color/colorBlack"
+                android:textSize="25dp"></TextView>
 
         </TableRow>
-        <Button
-            android:id="@+id/popup1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/editbox_background"
-            android:drawableTop="@drawable/ic_ingredients"
-            android:text="วัตถุดิบ"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="74dp" />
+
 
         <LinearLayout
             android:id="@+id/page1"
             android:layout_width="match_parent"
-            android:layout_height="121dp"
+            android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background"
             android:orientation="vertical"
             android:visibility="gone">
-
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="คะแนนความสำคัญ (1-5)"
-                android:textColor="@color/colorBlack"
-                android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,56 +46,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <TableRow
-                    android:layout_width="410dp"
-                    android:layout_height="50dp"
-                    android:gravity="center">
 
-                    <RadioGroup
-                        android:id="@+id/ingre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                        <RadioButton
-                            android:id="@+id/scoreingre1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButton2"
-                            android:text="1"
-                        />
-
-                    <RadioButton
-                            android:id="@+id/scoreingre2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                        android:onClick="checkButton2"
-                            android:text="2"/>
-
-                    <RadioButton
-                        android:id="@+id/scoreingre3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton2"
-                        android:text="3"/>
-
-                    <RadioButton
-                        android:id="@+id/scoreingre4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton2"
-                        android:text="4"/>
-
-                    <RadioButton
-                        android:id="@+id/scoreingre5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton2"
-                        android:text="5"/>
-
-
-                    </RadioGroup>
-                </TableRow>
             </LinearLayout>
         </LinearLayout>
 
@@ -128,8 +56,9 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background"
             android:drawableTop="@drawable/ic_rice"
-            android:text="ประเภทอาหาร"
-            android:textSize="18sp"
+            android:text="วิธีการปรุง"
+            android:textSize="20sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="165dp" />
@@ -137,110 +66,76 @@
         <LinearLayout
             android:id="@+id/page2"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:background="@android:drawable/editbox_background"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="คะแนนความสำคัญ (1-5)"
-                android:textColor="@color/colorBlack"
-                android:textSize="18dp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rice" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="วิธีการปรุง"
+                    android:textColor="#222222"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
                 android:gravity="center"
                 android:orientation="vertical">
 
+
                 <TableRow
-                    android:layout_width="410dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:gravity="center">
+                    android:gravity="center|top">
 
-                    <RadioGroup
-                        android:id="@+id/type"
+                    <Button
+                        android:id="@+id/puff"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                    <RadioButton
-                        android:id="@+id/scoretype1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton"
-                        android:text="1"
-                        />
+                        android:text="ผัด-ทอด"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp"></Button>
 
-                    <RadioButton
-                        android:id="@+id/scoretype2"
+                    <Button
+                        android:id="@+id/boiled"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="checkButton"
-                        android:text="2"
-                        />
+                        android:text="แกง-ต้ม"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp"></Button>
 
-                    <RadioButton
-                        android:id="@+id/scoretype3"
+                    <Button
+                        android:id="@+id/fried"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="checkButton"
-                        android:text="3"
-                        />
+                        android:text="ตุ๋น-นิ่ง"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp"></Button>
 
-                    <RadioButton
-                        android:id="@+id/scoretype4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton"
-                        android:text="4"
-                        />
-
-                    <RadioButton
-                        android:id="@+id/scoretype5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton"
-                        android:text="5"
-                        />
-                    </RadioGroup>
                 </TableRow>
-
-                <TableRow
-                        android:layout_width="410dp"
-                        android:layout_height="50dp"
-                        android:gravity="center|top">
-                        <Button
-                            android:id="@+id/puff"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ผัด"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="16dp">
-                        </Button>
-                        <Button
-                            android:id="@+id/boiled"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ต้ม"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="16dp">
-                        </Button>
-                        <Button
-                            android:id="@+id/fried"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ทอด"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="16dp">
-                        </Button>
-
-                    </TableRow>
 
             </LinearLayout>
 
@@ -252,8 +147,9 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background"
             android:drawableTop="@drawable/ic_cooking_time"
-            android:text="เวลาในการทำ"
-            android:textSize="18sp"
+            android:text="เวลาในการทำอาหาร"
+            android:textSize="20sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="255dp" />
@@ -261,102 +157,74 @@
         <LinearLayout
             android:id="@+id/page3"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:background="@android:drawable/editbox_background"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="คะแนนความสำคัญ (1-5)"
-                android:textColor="@color/colorBlack"
-                android:textSize="18dp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_cooking_time" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="ระยะเวลา"
+                    android:textColor="#222222"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
                 android:gravity="center"
                 android:orientation="vertical">
 
+
                 <TableRow
-                    android:layout_width="410dp"
-                    android:layout_height="50dp"
-                    android:gravity="center">
-
-                    <RadioGroup
-                        android:id="@+id/time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                    <RadioButton
-                        android:id="@+id/scoretime1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton3"
-                        android:text="1"/>
-
-                    <RadioButton
-                        android:id="@+id/scoretime2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton3"
-                        android:text="2"/>
-
-                    <RadioButton
-                        android:id="@+id/scoretime3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton3"
-                        android:text="3"/>
-
-                    <RadioButton
-                        android:id="@+id/scoretime4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton3"
-                        android:text="4"/>
-
-                    <RadioButton
-                        android:id="@+id/scoretime5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton3"
-                        android:text="5"/>
-                    </RadioGroup>
-                </TableRow>
-                <TableRow
-                    android:layout_width="410dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:gravity="center|top">
+
                     <Button
                         android:id="@+id/min30"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="30 นาที"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16dp">
-                    </Button>
-                     <Button
-                         android:id="@+id/min3060"
+                        android:textSize="16dp"></Button>
+
+                    <Button
+                        android:id="@+id/min3060"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="30-60 นาที"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16dp">
-                    </Button>
+                        android:textSize="16dp"></Button>
+
                     <Button
                         android:id="@+id/min60"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="60 นาที"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16dp">
-                    </Button>
+                        android:textSize="16dp"></Button>
 
 
                 </TableRow>
@@ -370,8 +238,9 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background"
             android:drawableTop="@drawable/ic_chef_hat"
-            android:text="ระดับความยาก"
-            android:textSize="18sp"
+            android:text="ระดับความยากของสูตรอาหาร"
+            android:textSize="20sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="344dp" />
@@ -379,125 +248,431 @@
         <LinearLayout
             android:id="@+id/page4"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:background="@android:drawable/editbox_background"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="คะแนนความสำคัญ (1-5)"
-                android:textColor="@color/colorBlack"
-                android:textSize="18dp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_chef_hat" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="ระดับความยาก"
+                    android:textColor="#222222"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <TableRow
-                    android:layout_width="410dp"
-                    android:layout_height="50dp"
-                    android:gravity="center">
-
-                    <RadioGroup
-                        android:id="@+id/level"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                    <RadioButton
-                        android:id="@+id/scorelevel1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton4"
-                        android:text="1"/>
-
-                    <RadioButton
-                        android:id="@+id/scorelevel2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton4"
-                        android:text="2"/>
-
-                    <RadioButton
-                        android:id="@+id/scorelevel3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton4"
-                        android:text="3"/>
-
-                    <RadioButton
-                        android:id="@+id/scorelevel4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton4"
-                        android:text="4"/>
-
-                    <RadioButton
-                        android:id="@+id/scorelevel5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="checkButton4"
-                        android:text="5"/>
-                    </RadioGroup>
-                </TableRow>
 
                 <TableRow
-                    android:layout_width="410dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:gravity="center|top">
+
                     <Button
                         android:id="@+id/easy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ง่าย"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16dp">
-                    </Button>
+                        android:textSize="16dp"></Button>
+
                     <Button
                         android:id="@+id/moderate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ปานกลาง"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16dp">
-                    </Button>
+                        android:textSize="16dp"></Button>
+
                     <Button
                         android:id="@+id/difficult"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ยาก"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16dp">
-                    </Button>
+                        android:textSize="16dp"></Button>
 
 
                 </TableRow>
+
+
             </LinearLayout>
 
+
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-        <Button
-            android:id="@+id/confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:background="@android:drawable/editbox_background"
-            android:text="ยืนยัน"
-            android:textSize="20dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
-        </Button>
+            <TableRow
+                android:layout_width="410dp"
+                android:layout_height="30dp"
+                android:gravity="center">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:text="คะแนนความสำคัญ(1-5)"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"></TextView>
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="355dp"
+                android:layout_height="65dp"
+                android:background="@drawable/button_popup233"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="วัตถุดิบ"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"></TextView>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+
+                    <RadioGroup
+                        android:id="@+id/ingre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/scoreingre1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="1" />
+
+                        <RadioButton
+                            android:id="@+id/scoreingre2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="2" />
+
+                        <RadioButton
+                            android:id="@+id/scoreingre3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="3" />
+
+                        <RadioButton
+                            android:id="@+id/scoreingre4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="4" />
+
+                        <RadioButton
+                            android:id="@+id/scoreingre5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="5" />
+
+
+                    </RadioGroup>
+                </TableRow>
+            </LinearLayout>
+
+            <TableRow
+                android:layout_width="410dp"
+                android:layout_height="15dp"
+                android:gravity="center"></TableRow>
+
+            <LinearLayout
+                android:layout_width="355dp"
+                android:layout_height="65dp"
+                android:background="@drawable/button_popup233"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="วิธีการปรุง"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"></TextView>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <RadioGroup
+                        android:id="@+id/type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/scoretype1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="1" />
+
+                        <RadioButton
+                            android:id="@+id/scoretype2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="2" />
+
+                        <RadioButton
+                            android:id="@+id/scoretype3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="3" />
+
+                        <RadioButton
+                            android:id="@+id/scoretype4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="4" />
+
+                        <RadioButton
+                            android:id="@+id/scoretype5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="5" />
+
+
+                    </RadioGroup>
+                </TableRow>
+            </LinearLayout>
+
+            <TableRow
+                android:layout_width="410dp"
+                android:layout_height="15dp"
+                android:gravity="center"></TableRow>
+
+            <LinearLayout
+                android:layout_width="355dp"
+                android:layout_height="65dp"
+                android:background="@drawable/button_popup233"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="เวลาในการทำอาหาร"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"></TextView>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+
+                    <RadioGroup
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/scoretime1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="1" />
+
+                        <RadioButton
+                            android:id="@+id/scoretime2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="2" />
+
+                        <RadioButton
+                            android:id="@+id/scoretime3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="3" />
+
+                        <RadioButton
+                            android:id="@+id/scoretime4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="4" />
+
+                        <RadioButton
+                            android:id="@+id/scoretime5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="5" />
+
+
+                    </RadioGroup>
+                </TableRow>
+            </LinearLayout>
+
+            <TableRow
+                android:layout_width="410dp"
+                android:layout_height="15dp"
+                android:gravity="center"></TableRow>
+
+            <LinearLayout
+                android:layout_width="355dp"
+                android:layout_height="65dp"
+                android:background="@drawable/button_popup233"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="ระดับความยากของสูตรอาหาร"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"></TextView>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="410dp"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <RadioGroup
+                        android:id="@+id/level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/scorelevel1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="1" />
+
+                        <RadioButton
+                            android:id="@+id/scorelevel2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="2" />
+
+                        <RadioButton
+                            android:id="@+id/scorelevel3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="3" />
+
+                        <RadioButton
+                            android:id="@+id/scorelevel4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="4" />
+
+                        <RadioButton
+                            android:id="@+id/scorelevel5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkButton2"
+                            android:text="5" />
+
+
+                    </RadioGroup>
+                </TableRow>
+            </LinearLayout>
+
+            <TableRow
+                android:layout_width="410dp"
+                android:layout_height="50dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/editbox_background"
+                    android:text="ยืนยัน"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp">
+
+                </Button>
+            </TableRow>
         </LinearLayout>
 
     </LinearLayout>

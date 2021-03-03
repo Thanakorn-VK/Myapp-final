@@ -45,26 +45,36 @@ public class Favourite extends AppCompatActivity {
         }catch (NullPointerException e){
 
         }
-
-        checkStatus("Porkbasilfriedrice");
-        checkStatus("ShrimpBasilFriedRice");
-        checkStatus("eggfriedrice");
+        /*
+        String[] name = {"Chickenbasilfriedrice",   //  กระเพราไก่
+            "Chickenrice",                      //  ข้าวมันไก่
+            "MincedPorkBoiledRice",             //  ข้าวต้มหมู
+            "Friedporkbelly",                   //หมูทอด
+            "Padthaiwithshrimp",                //ผัดไทยกุ้งสด
+            "Stirfriedmorningglory",            //ผัดผักบุ้ง
+            "Porkbasilfriedrice",               //กระเพราหมู
+            "eggfriedrice",                     //ข้างผัดไข่
+            "Shrimp PasteFriedRice",            //กระเพรากุ้ง
+            "SouthernStirFriedPork"};
+         */
         checkStatus("Chickenbasilfriedrice");
         checkStatus("Chickenrice");
         checkStatus("MincedPorkBoiledRice");
+        checkStatus("Friedporkbelly");
         checkStatus("Padthaiwithshrimp");
         checkStatus("Stirfriedmorningglory");
-        checkStatus("Friedporkbelly");
+        checkStatus("Padthaiwithshrimp");
+        checkStatus("eggfriedrice");
+        checkStatus("Shrimp PasteFriedRice");
+        checkStatus("SouthernStirFriedPork");
         // ต้องการให้ฟังก์ชันทั้งหมดนี้ทำงานให้เสร็จก่อน
 
         LinearLayout menu1 = (LinearLayout)findViewById(R.id.fmenu1);
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(0));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(0));
                 startActivity(i);
             }
         });
@@ -72,10 +82,8 @@ public class Favourite extends AppCompatActivity {
         menu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(1));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(1));
                 startActivity(i);
             }
         });
@@ -83,10 +91,8 @@ public class Favourite extends AppCompatActivity {
         menu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(2));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(2));
                 startActivity(i);
             }
         });
@@ -94,10 +100,8 @@ public class Favourite extends AppCompatActivity {
         menu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(3));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(3));
                 startActivity(i);
             }
         });
@@ -105,10 +109,8 @@ public class Favourite extends AppCompatActivity {
         menu5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(4));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(4));
                 startActivity(i);
             }
         });
@@ -116,10 +118,8 @@ public class Favourite extends AppCompatActivity {
         menu6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(5));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(5));
                 startActivity(i);
             }
         });
@@ -127,10 +127,8 @@ public class Favourite extends AppCompatActivity {
         menu7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(6));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(6));
                 startActivity(i);
             }
         });
@@ -138,10 +136,8 @@ public class Favourite extends AppCompatActivity {
         menu8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(7));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(7));
                 startActivity(i);
             }
         });
@@ -149,10 +145,8 @@ public class Favourite extends AppCompatActivity {
         menu9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(8));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(8));
                 startActivity(i);
             }
         });
@@ -160,10 +154,8 @@ public class Favourite extends AppCompatActivity {
         menu10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(9));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(9));
                 startActivity(i);
             }
         });
@@ -171,10 +163,8 @@ public class Favourite extends AppCompatActivity {
         menu11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(10));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(10));
                 startActivity(i);
             }
         });
@@ -182,10 +172,8 @@ public class Favourite extends AppCompatActivity {
         menu12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(11));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(11));
                 startActivity(i);
             }
         });

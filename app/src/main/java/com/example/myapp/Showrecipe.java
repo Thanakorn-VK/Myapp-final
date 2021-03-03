@@ -30,16 +30,12 @@ public class Showrecipe extends AppCompatActivity {
     String Menu = ""; // ตรงนี้ต้องเป็นตัวแปรที่มาจากการเลือกเมนูอาหารจากหน้าที่แล้ว
     public int current_img;
     String currentName;
-    int [] Img = new int[] {R.mipmap.ic_pan,R.mipmap.ic_pot};
-    int [] IndexText = new int[] {R.id.textdata0,R.id.textdata1,R.id.textdata2,R.id.textdata3,R.id.textdata4,
-                                  R.id.textdata5,R.id.textdata6,R.id.textdata7,R.id.textdata8,R.id.textdata9,
-                                  R.id.textdata10,R.id.textdata11,R.id.textdata12,R.id.textdata13,R.id.textdata14,
-                                  R.id.textdata15,R.id.textdata16,R.id.textdata17,R.id.textdata18,R.id.textdata19,R.id.textdata20};
+    int [] Img = new int[] {R.mipmap.ic_pan_foreground,R.mipmap.ic_pot_foreground};
+    int [] IndexText = new int[] {R.id.textdata0};
 
-    int [] IndexText2 = new int[] {R.id.textdata21,R.id.textdata22,R.id.textdata23,R.id.textdata24,R.id.textdata25,
-                                   R.id.textdata26,R.id.textdata27,R.id.textdata28,R.id.textdata29,R.id.textdata30};
+    int [] IndexText2 = new int[] {R.id.textdata21};
 
-    int [] ImgStatus = new int [] {R.mipmap.ic_unlike,R.mipmap.ic_like};
+    int [] ImgStatus = new int [] {R.mipmap.ic_unlike_foreground,R.mipmap.ic_like_foreground};
     ImageView imageView;
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -80,26 +76,18 @@ public class Showrecipe extends AppCompatActivity {
         }
     }
     public void getMenu(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("nametoshow");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String Value = dataSnapshot.getValue(String.class);
-                currentName = Value;
-                getUrl(Value);
-                getName(Value);
-                getType(Value);
-                getData(Value);
-                getDataText(Value);
-                getStatus(Value);
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "fail read date", Toast.LENGTH_LONG).show();
-            }
 
-        });
+        Bundle extras = getIntent().getExtras();
+        String Value = extras.getString("name");
+
+        currentName = Value;
+        getUrl(Value);
+        getName(Value);
+        getType(Value);
+        getData(Value);
+        getDataText(Value);
+        getStatus(Value);
+
     }
     public void getStatus(final String name){
         String way = "menu/"+ name +"/status";
@@ -243,23 +231,6 @@ public class Showrecipe extends AppCompatActivity {
         });
     }
 
-
-
-    public void setTextempty1(){
-        for(int index = 0 ; index < IndexText.length ; index++){
-            TextView textView = (TextView) findViewById(IndexText[index]);
-            //textView.setVisibility(View.VISIBLE);
-            textView.setText(" ");
-        }
-    }
-    public void setTextempty2(){
-        for(int index = 0 ; index < IndexText2.length ; index++){
-            TextView textView = (TextView) findViewById(IndexText2[index]);
-            //textView.setVisibility(View.VISIBLE);
-            textView.setText("");
-        }
-    }
-
     public void getData(final String name){
         String way = "menu/"+ name +"/text1";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -268,8 +239,10 @@ public class Showrecipe extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
+
                 arr = Value.split("/");
-                showData(arr); //บัคตรงนี้ถ้าย้อนกลับไปดูเมนูอื่น
+
+                showData2(arr); //บัคตรงนี้ถ้าย้อนกลับไปดูเมนูอื่น
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -277,18 +250,15 @@ public class Showrecipe extends AppCompatActivity {
             }
         });
     }
-    public void showData(String[] arr){
+    public void showData2(String[] arr){
+        TextView textView = (TextView) findViewById(IndexText[0]);
+        String str = "";
+
         for(int index = 0 ; index < arr.length ; index++){
-            TextView textView = (TextView) findViewById(IndexText[index]);
-            textView.setVisibility(View.VISIBLE);
-            //Toast.makeText(getApplicationContext(), "text"+index+" is "+arr[index], Toast.LENGTH_LONG).show();
-            textView.setText((index+1)+". "+arr[index]); //บัคตรงนี้ถ้าย้อนกลับไปดูเมนูอื่น
-        }
-        for(int index = arr.length ; index < IndexText.length ; index++){
-            TextView textView = (TextView) findViewById(IndexText[index]);
-            textView.setVisibility(View.GONE);
+            str+= (index+1)+". "+arr[index] + "\n\n";
         }
 
+        textView.setText(str);
     }
     public void getDataText(final String name){
         String way = "menu/"+ name +"/text2";
@@ -299,7 +269,7 @@ public class Showrecipe extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
                 arrText2 = Value.split("/");
-                showText(arrText2);
+                showText2(arrText2);
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -307,18 +277,14 @@ public class Showrecipe extends AppCompatActivity {
             }
         });
     }
-    public void showText(String[] arr){
-        for(int index = 0 ; index < arr.length ; index++){
-            TextView textView = (TextView) findViewById(IndexText2[index]);
-            //Toast.makeText(getApplicationContext(), "text"+index+" is "+arr[index], Toast.LENGTH_LONG).show();
-            textView.setVisibility(View.VISIBLE);
-            textView.setText((index+1)+". "+arr[index]);
-        }
+    public void showText2(String[] arr){
+        TextView textView2 = (TextView) findViewById(IndexText2[0]);
+        String str = "";
 
-        for(int index = arr.length ; index < IndexText2.length ; index++){
-            TextView textView = (TextView) findViewById(IndexText2[index]);
-            textView.setVisibility(View.GONE);
+        for(int index = 0 ; index < arr.length ; index++){
+            str+= (index+1)+". "+arr[index] + "\n\n";
         }
+        textView2.setText(str);
     }
 
 }

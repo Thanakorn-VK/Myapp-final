@@ -29,6 +29,8 @@ public class Ingredient extends AppCompatActivity {
                                 R.drawable.waterspinach,R.drawable.egg,R.drawable.shrimp,R.drawable.porkmeat,
                                 R.drawable.chickenbreast};
     public int index = 1;
+    public String str = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,7 @@ public class Ingredient extends AppCompatActivity {
         getStatus("cucumber");
         getStatus("ginger");
         getStatus("galangal");
-        getStatus("blockkerry");
+        getStatus("broccoli");
         getStatus("coriander");
         getStatus("holybasil");
         getStatus("waterspinach");
@@ -66,6 +68,10 @@ public class Ingredient extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("setBT");
+                myRef.setValue(str);
+
                 Intent i = new Intent(getApplicationContext(), Chooseingredient.class);
                 startActivity(i);
             }
@@ -92,7 +98,7 @@ public class Ingredient extends AppCompatActivity {
             case "cucumber":            return "แตงกวา";
             case "ginger":              return "ขิง";
             case "galangal":            return "ข่า";
-            case "blockkerry":          return "บร็อคโคลี่";
+            case "broccoli":            return "บร็อคโคลี่";
             case "coriander":           return "ผักชี";
             case "holybasil":           return "ใบกะเพรา";
             case "waterspinach":        return "ผักบุ้ง";
@@ -125,7 +131,7 @@ public class Ingredient extends AppCompatActivity {
             case "cucumber":            return 14;
             case "ginger":              return 15;
             case "galangal":            return 16;
-            case "blockkerry":          return 17;
+            case "broccoli":            return 17;
             case "coriander":           return 18;
             case "holybasil":           return 19;
             case "waterspinach":        return 20;
@@ -154,6 +160,7 @@ public class Ingredient extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Value = dataSnapshot.getValue(String.class);
                 if(Value.equals("true")) {
+                    str = str + To + "/";
                     switch(index) {
                         case 1:
                             ImageView imageView1 = (ImageView) findViewById(R.id.img1);
@@ -332,7 +339,6 @@ public class Ingredient extends AppCompatActivity {
                             incIndex();
                             break;
                         default:
-                            // code block
                     }
                 }
             }
@@ -343,9 +349,6 @@ public class Ingredient extends AppCompatActivity {
 
         });
 
-    }
-    public static int sum(int a, int b){
-        return a+b;
     }
     public static String[] Sort_by_Name_AtoZ(String[] b){
         Arrays.sort(b);
@@ -363,14 +366,6 @@ public class Ingredient extends AppCompatActivity {
         result = 1/(1+cal.Calculator_Standard_Euclidean_Distance(n,X,Y));
         return result;
     }
-    public boolean Firebase(String name){
-        FirebaseInput firebase = new FirebaseInput();
-        boolean state = false;
-        state = firebase.PuttoFirebase(name);
-        return state;
-    }
-
-
     public void incIndex() {
         index = index + 1;
     }

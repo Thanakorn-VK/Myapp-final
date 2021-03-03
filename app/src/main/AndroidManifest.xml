@@ -10,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="ChefMate"
+        android:label="CookMate"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -26,6 +26,10 @@
         <activity android:name=".Ingredient" />
         <activity android:name=".Chooseingredient" />
         <activity android:name=".Showmenufromdatabase" />
+        <activity android:name=".Showmenufromdatabase2" />
+        <activity android:name=".Showmenufromdatabase3" />
+        <activity android:name=".Showmenufromdatabase4" />
+        <activity android:name=".Showmenufromdatabase5" />
         <activity android:name=".Favourite" />
         <activity android:name=".Home" />
         <activity

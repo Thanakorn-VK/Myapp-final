@@ -28,15 +28,15 @@ public class Showmenufromdatabase extends AppCompatActivity {
 
     int [] imgmenu = new int[] {R.id.imgmenu,R.id.imgmenu2,R.id.imgmenu3,R.id.imgmenu4,
                                 R.id.imgmenu5,R.id.imgmenu6,R.id.imgmenu7,R.id.imgmenu8,
-                                R.id.imgmenu9,R.id.imgmenu10,R.id.imgmenu11,R.id.imgmenu12};
+                                R.id.imgmenu9,R.id.imgmenu10};
 
     int [] textmenu = new int[] {R.id.textmenu,R.id.textmenu2,R.id.textmenu3,R.id.textmenu4,
                                  R.id.textmenu5,R.id.textmenu6,R.id.textmenu7,R.id.textmenu8,
-                                 R.id.textmenu9,R.id.textmenu10,R.id.textmenu11,R.id.textmenu12};
+                                 R.id.textmenu9,R.id.textmenu10};
 
     int [] menu = new int[] {R.id.menu1,R.id.menu2,R.id.menu3,R.id.menu4, // 0 1 2 3
                              R.id.menu5,R.id.menu6,R.id.menu7,R.id.menu8, // 4 5 6 7
-                             R.id.menu9,R.id.menu10,R.id.menu11,R.id.menu12}; // 8 9 10 11
+                             R.id.menu9,R.id.menu10}; // 8 9 10 11
 
     public int index = 0;
     public int count = -1;
@@ -63,13 +63,36 @@ public class Showmenufromdatabase extends AppCompatActivity {
             }
         });
 
-        Button showmenu = (Button) findViewById(R.id.showrecipe);
-        showmenu.setOnClickListener(new View.OnClickListener() {
+        Button bt2 = (Button) findViewById(R.id.button3);
+        bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(int i = 0 ; i < nameofmenu.size() ; i++){
-                    Toast.makeText(getApplicationContext(), "index" + i +" = "+ nameofmenu.get(i), Toast.LENGTH_LONG).show();
-                }
+                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase2.class);
+                startActivity(i);
+            }
+        });
+        Button bt3 = (Button) findViewById(R.id.button4);
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase3.class);
+                startActivity(i);
+            }
+        });
+        Button bt4 = (Button) findViewById(R.id.button5);
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase4.class);
+                startActivity(i);
+            }
+        });
+        Button bt5 = (Button) findViewById(R.id.button6);
+        bt5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Showmenufromdatabase5.class);
+                startActivity(i);
             }
         });
 
@@ -77,10 +100,8 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(0));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(0));
                 startActivity(i);
             }
         });
@@ -88,10 +109,8 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(1));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(1));
                 startActivity(i);
             }
         });
@@ -99,10 +118,9 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(2));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(2));
+
                 startActivity(i);
             }
         });
@@ -110,10 +128,9 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(3));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(3));
+
                 startActivity(i);
             }
         });
@@ -121,10 +138,8 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(4));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(4));
                 startActivity(i);
             }
         });
@@ -132,10 +147,8 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(5));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(5));
                 startActivity(i);
             }
         });
@@ -143,10 +156,8 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(6));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(6));
                 startActivity(i);
             }
         });
@@ -154,10 +165,8 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(7));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(7));
                 startActivity(i);
             }
         });
@@ -165,10 +174,8 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(8));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(8));
                 startActivity(i);
             }
         });
@@ -176,44 +183,20 @@ public class Showmenufromdatabase extends AppCompatActivity {
         menu10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(9));
                 Intent i = new Intent(getApplicationContext(), Showrecipe.class);
-                startActivity(i);
-            }
-        });
-        LinearLayout menu11 = (LinearLayout)findViewById(R.id.menu11);
-        menu11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(10));
-                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
-                startActivity(i);
-            }
-        });
-        LinearLayout menu12 = (LinearLayout)findViewById(R.id.menu12);
-        menu12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("nametoshow");
-                myRef.setValue(nameofmenu.get(11));
-                Intent i = new Intent(getApplicationContext(), Showrecipe.class);
+                i.putExtra("name",nameofmenu.get(9));
                 startActivity(i);
             }
         });
     }
     public void setBoxvisibilityGone(){
-        for(int index = nameofmenu.size() ; index < 12 ; index++){
+        for(int index = nameofmenu.size() ; index < 10 ; index++){
             LinearLayout linearlayout = (LinearLayout) findViewById(menu[index]);
             linearlayout.setVisibility(View.GONE);
         }
     }
     public void setBoxvisibilityVisible(){
-        for(int index = 0 ; index < 12 ; index++){
+        for(int index = 0 ; index < 10 ; index++){
             LinearLayout linearlayout = (LinearLayout) findViewById(menu[index]);
             linearlayout.setVisibility(View.VISIBLE);
         }

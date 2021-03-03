@@ -13,6 +13,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
         try{
             this.getSupportActionBar().hide();
         }catch (NullPointerException e){
